@@ -1,6 +1,8 @@
 import { motion } from "framer-motion";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { Floating3DElements } from "@/components/Floating3DElements";
+import { AnimatedSphere } from "@/components/AnimatedSphere";
 import { Phone, Mail, MapPin, Target, Eye, Users } from "lucide-react";
 
 const About = () => {
@@ -25,15 +27,22 @@ const About = () => {
   return (
     <div className="min-h-screen pt-20">
       {/* Hero */}
-      <section className="py-20 bg-gradient-to-b from-background to-card/50">
-        <div className="container mx-auto px-4 lg:px-8">
+      <section className="py-20 bg-gradient-to-b from-background via-purple-dark/10 to-card/50 relative overflow-hidden">
+        <Floating3DElements />
+        
+        {/* Animated spheres */}
+        <div className="absolute right-20 top-10 opacity-40">
+          <AnimatedSphere size={180} color="purple" delay={0} />
+        </div>
+        
+        <div className="container mx-auto px-4 lg:px-8 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             className="text-center max-w-3xl mx-auto"
           >
             <h1 className="text-5xl lg:text-6xl font-bold mb-6">
-              About <span className="text-gradient-cyan">Bluemantle</span>
+              About <span className="text-gradient-purple">Bluemantle</span>
             </h1>
             <p className="text-xl text-muted-foreground">
               Empowering traders with structured, practical education for financial markets
@@ -43,18 +52,21 @@ const About = () => {
       </section>
 
       {/* Mission & Vision */}
-      <section className="py-20">
-        <div className="container mx-auto px-4 lg:px-8">
+      <section className="py-20 relative overflow-hidden">
+        <Floating3DElements />
+        
+        <div className="container mx-auto px-4 lg:px-8 relative z-10">
           <div className="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
             >
-              <Card className="p-8 bg-gradient-to-br from-card to-muted border-2 border-secondary/50 h-full">
-                <Eye className="w-12 h-12 text-secondary mb-4 glow-cyan" />
-                <h2 className="text-3xl font-bold mb-4">Our Vision</h2>
-                <p className="text-lg text-muted-foreground leading-relaxed">
+              <Card className="p-8 bg-gradient-to-br from-purple/10 via-card to-muted border-2 border-purple/50 h-full relative overflow-hidden">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-purple/20 rounded-full blur-2xl" />
+                <Eye className="w-12 h-12 text-purple mb-4 glow-purple relative z-10" />
+                <h2 className="text-3xl font-bold mb-4 relative z-10">Our Vision</h2>
+                <p className="text-lg text-muted-foreground leading-relaxed relative z-10">
                   To empower students to become confident and independent financial market professionals 
                   equipped with real-world trading skills and knowledge.
                 </p>
@@ -66,10 +78,11 @@ const About = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
             >
-              <Card className="p-8 bg-gradient-to-br from-card to-muted border-2 border-accent/50 h-full">
-                <Target className="w-12 h-12 text-accent mb-4 glow-gold" />
-                <h2 className="text-3xl font-bold mb-4">Our Mission</h2>
-                <p className="text-lg text-muted-foreground leading-relaxed">
+              <Card className="p-8 bg-gradient-to-br from-secondary/10 via-card to-muted border-2 border-secondary/50 h-full relative overflow-hidden">
+                <div className="absolute bottom-0 left-0 w-32 h-32 bg-secondary/20 rounded-full blur-2xl" />
+                <Target className="w-12 h-12 text-secondary mb-4 glow-cyan relative z-10" />
+                <h2 className="text-3xl font-bold mb-4 relative z-10">Our Mission</h2>
+                <p className="text-lg text-muted-foreground leading-relaxed relative z-10">
                   Provide structured training with real-world market relevance, live mentorship, 
                   and hands-on learning to build successful trading careers.
                 </p>
@@ -189,18 +202,31 @@ const About = () => {
               </div>
             </Card>
 
-            {/* Map placeholder */}
+            {/* Google Map */}
             <Card className="p-8 bg-card border-border">
               <h3 className="text-2xl font-bold mb-6">Visit Us</h3>
-              <div className="w-full h-64 bg-muted rounded-lg flex items-center justify-center">
-                <div className="text-center">
-                  <MapPin className="w-12 h-12 text-muted-foreground mx-auto mb-2" />
-                  <p className="text-muted-foreground">Google Maps Integration</p>
-                  <Button variant="outline" className="mt-4">
-                    View on Maps
-                  </Button>
-                </div>
+              <div className="w-full h-64 rounded-lg overflow-hidden border border-border">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3918.2281699999997!2d76.6547!3d10.7867!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTDCsDQ3JzEyLjEiTiA3NsKwMzknMTYuOSJF!5e0!3m2!1sen!2sin!4v1234567890"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="Bluemantle Institute Location"
+                />
               </div>
+              <Button variant="outline" className="mt-4 w-full" asChild>
+                <a 
+                  href="https://maps.google.com/?q=Bluemantle+Institute+of+Technology+Palakkad" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                >
+                  <MapPin className="w-4 h-4 mr-2" />
+                  Open in Google Maps
+                </a>
+              </Button>
             </Card>
           </div>
         </div>

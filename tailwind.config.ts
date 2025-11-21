@@ -47,15 +47,20 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        sidebar: {
-          DEFAULT: "hsl(var(--sidebar-background))",
-          foreground: "hsl(var(--sidebar-foreground))",
-          primary: "hsl(var(--sidebar-primary))",
-          "primary-foreground": "hsl(var(--sidebar-primary-foreground))",
-          accent: "hsl(var(--sidebar-accent))",
-          "accent-foreground": "hsl(var(--sidebar-accent-foreground))",
-          border: "hsl(var(--sidebar-border))",
-          ring: "hsl(var(--sidebar-ring))",
+        navy: {
+          DEFAULT: "hsl(230 45% 8%)",
+          light: "hsl(230 40% 12%)",
+          dark: "hsl(230 50% 5%)",
+        },
+        cyan: {
+          DEFAULT: "hsl(185 84% 50%)",
+          light: "hsl(185 84% 60%)",
+          dark: "hsl(185 84% 40%)",
+        },
+        gold: {
+          DEFAULT: "hsl(45 100% 60%)",
+          light: "hsl(45 100% 70%)",
+          dark: "hsl(45 100% 50%)",
         },
       },
       borderRadius: {

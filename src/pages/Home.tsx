@@ -2,6 +2,8 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { TradingCandlesticks } from "@/components/TradingCandlesticks";
+import { Floating3DElements } from "@/components/Floating3DElements";
+import { AnimatedSphere } from "@/components/AnimatedSphere";
 import { 
   Award, 
   Users, 
@@ -105,8 +107,9 @@ const Home = () => {
         </div>
 
         {/* Glow orbs */}
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-secondary/20 rounded-full blur-3xl animate-glow-pulse" />
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-primary/20 rounded-full blur-3xl animate-glow-pulse" style={{ animationDelay: "1s" }} />
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-purple/20 rounded-full blur-3xl animate-glow-pulse" />
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-secondary/20 rounded-full blur-3xl animate-glow-pulse" style={{ animationDelay: "1s" }} />
+        <div className="absolute top-1/2 right-1/3 w-64 h-64 bg-primary/20 rounded-full blur-3xl animate-glow-pulse" style={{ animationDelay: "2s" }} />
       </section>
 
       {/* Core Features */}
@@ -176,8 +179,18 @@ const Home = () => {
       </section>
 
       {/* Certifications */}
-      <section className="py-20 bg-gradient-to-b from-transparent to-card/50">
-        <div className="container mx-auto px-4 lg:px-8">
+      <section className="py-20 bg-gradient-to-b from-transparent to-card/50 relative overflow-hidden">
+        <Floating3DElements />
+        
+        {/* Animated spheres */}
+        <div className="absolute left-10 top-20 opacity-50">
+          <AnimatedSphere size={150} color="purple" delay={0.2} />
+        </div>
+        <div className="absolute right-10 bottom-20 opacity-50">
+          <AnimatedSphere size={120} color="cyan" delay={0.5} />
+        </div>
+
+        <div className="container mx-auto px-4 lg:px-8 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -200,13 +213,15 @@ const Home = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20">
-        <div className="container mx-auto px-4 lg:px-8">
+      <section className="py-20 relative overflow-hidden">
+        <Floating3DElements />
+        
+        <div className="container mx-auto px-4 lg:px-8 relative z-10">
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            className="bg-gradient-to-br from-primary via-secondary to-primary rounded-3xl p-12 lg:p-16 text-center relative overflow-hidden"
+            className="bg-gradient-purple-cyan rounded-3xl p-12 lg:p-16 text-center relative overflow-hidden"
           >
             <div className="relative z-10">
               <h2 className="text-4xl lg:text-5xl font-bold text-navy mb-6">
@@ -216,7 +231,7 @@ const Home = () => {
                 Join thousands of successful traders who transformed their lives with Bluemantle
               </p>
               <div className="flex flex-wrap gap-4 justify-center">
-                <Button size="lg" className="bg-navy text-secondary font-bold text-lg px-8 hover:bg-navy/90">
+                <Button size="lg" className="bg-navy text-secondary font-bold text-lg px-8 hover:bg-navy/90 glow-purple">
                   Apply Now
                 </Button>
                 <Button size="lg" variant="outline" className="border-navy text-navy hover:bg-navy hover:text-secondary font-semibold text-lg px-8">
@@ -226,8 +241,9 @@ const Home = () => {
             </div>
             
             {/* Decorative elements */}
-            <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl" />
-            <div className="absolute bottom-0 left-0 w-64 h-64 bg-navy/20 rounded-full blur-3xl" />
+            <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl animate-glow-pulse" />
+            <div className="absolute bottom-0 left-0 w-64 h-64 bg-navy/20 rounded-full blur-3xl animate-glow-pulse" style={{ animationDelay: "1s" }} />
+            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-purple/10 rounded-full blur-3xl animate-glow-pulse" style={{ animationDelay: "2s" }} />
           </motion.div>
         </div>
       </section>

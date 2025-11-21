@@ -62,6 +62,11 @@ export default {
           light: "hsl(45 100% 70%)",
           dark: "hsl(45 100% 50%)",
         },
+        purple: {
+          DEFAULT: "hsl(270 70% 60%)",
+          light: "hsl(280 80% 70%)",
+          dark: "hsl(270 60% 40%)",
+        },
       },
       borderRadius: {
         lg: "var(--radius)",

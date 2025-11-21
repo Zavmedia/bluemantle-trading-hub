@@ -27,6 +27,11 @@ All colors MUST be HSL.
     --secondary: 185 84% 50%;
     --secondary-foreground: 230 45% 8%;
 
+    /* Purple - mystical depth */
+    --purple: 270 70% 60%;
+    --purple-dark: 270 60% 40%;
+    --purple-light: 280 80% 70%;
+
     /* Muted navy tones */
     --muted: 230 35% 15%;
     --muted-foreground: 210 20% 70%;
@@ -45,14 +50,17 @@ All colors MUST be HSL.
     --radius: 0.75rem;
 
     /* Gradients for depth and flow */
-    --gradient-primary: linear-gradient(135deg, hsl(230 45% 8%) 0%, hsl(240 50% 15%) 50%, hsl(230 45% 8%) 100%);
+    --gradient-primary: linear-gradient(135deg, hsl(230 45% 8%) 0%, hsl(270 50% 20%) 50%, hsl(230 45% 8%) 100%);
     --gradient-hero: linear-gradient(to bottom, hsl(230 45% 8% / 0.6), hsl(230 45% 8%));
     --gradient-cyan: linear-gradient(135deg, hsl(220 90% 56%), hsl(185 84% 50%));
+    --gradient-purple: linear-gradient(135deg, hsl(270 70% 60%), hsl(280 80% 70%));
+    --gradient-purple-cyan: linear-gradient(135deg, hsl(270 70% 60%), hsl(185 84% 50%));
     --gradient-glow: radial-gradient(circle at 50% 50%, hsl(185 84% 50% / 0.15), transparent 70%);
 
     /* Glow effects for 3D elements */
     --glow-cyan: 0 0 40px hsl(185 84% 50% / 0.4), 0 0 80px hsl(185 84% 50% / 0.2);
     --glow-blue: 0 0 40px hsl(220 90% 56% / 0.4), 0 0 80px hsl(220 90% 56% / 0.2);
+    --glow-purple: 0 0 40px hsl(270 70% 60% / 0.4), 0 0 80px hsl(270 70% 60% / 0.2);
     --glow-gold: 0 0 40px hsl(45 100% 60% / 0.4), 0 0 80px hsl(45 100% 60% / 0.2);
 
     /* Shadows with color tint */
@@ -143,5 +151,24 @@ All colors MUST be HSL.
 
   .glow-gold {
     box-shadow: var(--glow-gold);
+  }
+
+  .glow-purple {
+    box-shadow: var(--glow-purple);
+  }
+
+  .text-gradient-purple {
+    background: linear-gradient(135deg, hsl(270 70% 60%), hsl(280 80% 70%));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .bg-gradient-purple {
+    background: linear-gradient(135deg, hsl(270 70% 60%), hsl(280 80% 70%));
+  }
+
+  .bg-gradient-purple-cyan {
+    background: linear-gradient(135deg, hsl(270 70% 60%), hsl(185 84% 50%));
   }
 }

@@ -95,7 +95,7 @@ export const Footer = () => {
         </div>
 
         <div className="border-t border-border mt-8 pt-8 text-center text-sm text-muted-foreground">
-          <p>© 2025 Bluemantle Institute of Technology. All rights reserved.</p>
+          <p>© 2025 Bluemantle LLP. All rights reserved.</p>
         </div>
       </div>
     </footer>

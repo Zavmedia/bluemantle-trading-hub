@@ -202,7 +202,7 @@ const Home = () => {
               Excel Your Career with <span className="text-gradient-gold">NISM Certifications</span>
             </h2>
             <p className="text-xl text-muted-foreground mb-8">
-              Get Bluemantle Institute Certification along with NISM Certification Guidance & Exam Assistance. 
+              Get Bluemantle LLP Certification along with NISM Certification Guidance & Exam Assistance. 
               Build a strong foundation for your financial market career.
             </p>
             <Button size="lg" className="bg-gradient-to-r from-accent to-accent/80 text-navy font-bold text-lg px-8 glow-gold">

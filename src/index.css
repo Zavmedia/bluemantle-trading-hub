@@ -8,8 +8,8 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Purple main background */
-    --background: 280 61% 15%;
+    /* Navy depths - main background */
+    --background: 230 45% 8%;
     --foreground: 210 100% 98%;
 
     /* Card surfaces with subtle elevation */

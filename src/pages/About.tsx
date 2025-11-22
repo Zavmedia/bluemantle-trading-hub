@@ -103,7 +103,7 @@ const About = () => {
           >
             <h2 className="text-4xl font-bold mb-6">Who We Are</h2>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              Bluemantle LLP is a professional trading institute dedicated to delivering 
+              Bluemantle Institute of Technology is a professional trading institute dedicated to delivering 
               structured, practical market education. We specialize in the Indian Stock Market & Forex Trading, 
               providing comprehensive training from NISM certified mentors. Our programs combine theoretical 
               knowledge with live trading sessions, ensuring students gain real-world experience and confidence 
@@ -192,7 +192,7 @@ const About = () => {
                   <div>
                     <p className="font-semibold mb-1">Address</p>
                     <p className="text-muted-foreground">
-                      Bluemantle LLP<br />
+                      Bluemantle Institute of Technology<br />
                       Ivy Biophilic Workspace<br />
                       Thachampara Post, Palakkad<br />
                       Kerala – 678593
@@ -214,12 +214,12 @@ const About = () => {
                   allowFullScreen
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
-                  title="Bluemantle LLP Location"
+                  title="Bluemantle Institute Location"
                 />
               </div>
               <Button variant="outline" className="mt-4 w-full" asChild>
                 <a 
-                  href="https://maps.google.com/?q=Bluemantle+LLP+Palakkad" 
+                  href="https://maps.google.com/?q=Bluemantle+Institute+of+Technology+Palakkad" 
                   target="_blank" 
                   rel="noopener noreferrer"
                 >

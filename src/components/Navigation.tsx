@@ -25,7 +25,7 @@ export const Navigation = () => {
           <Link to="/" className="flex items-center gap-3">
             <img src={logo} alt="Bluemantle Institute" className="h-14 w-14 object-contain" />
             <div className="hidden sm:block">
-              <h1 className="text-xl font-bold text-gradient-cyan">Bluemantle LLT </h1>
+              <h1 className="text-xl font-bold text-gradient-cyan">Bluemantle LLP </h1>
               <p className="text-xs text-muted-foreground">Institute of Technology</p>
             </div>
           </Link>

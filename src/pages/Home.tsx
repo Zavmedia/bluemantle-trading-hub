@@ -224,7 +224,7 @@ const Home = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 relative overflow-hidden">
+      <section className="py-20 relative overflow-hidden text-gray-50 bg-neutral-950">
         <Floating3DElements />
         
         <div className="container mx-auto px-4 lg:px-8 relative z-10">

@@ -23,10 +23,10 @@ export const Navigation = () => {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3">
-            <img src={logo} alt="Bluemantle Institute" className="h-14 w-14 object-contain" />
+            <img src={logo} alt="Bluemantle LLP" className="h-14 w-14 object-contain" />
             <div className="hidden sm:block">
               <h1 className="text-xl font-bold text-gradient-cyan">Bluemantle</h1>
-              <p className="text-xs text-muted-foreground">Institute of Technology</p>
+              <p className="text-xs text-muted-foreground">LLP</p>
             </div>
           </Link>
 

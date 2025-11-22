@@ -1,22 +1,31 @@
 import { Link } from "react-router-dom";
 import { Instagram, Linkedin, Youtube, Phone, Mail, MapPin } from "lucide-react";
 import logo from "@/assets/logo.png";
-
 export const Footer = () => {
-  const quickLinks = [
-    { path: "/", label: "Home" },
-    { path: "/courses", label: "Courses & Services" },
-    { path: "/about", label: "About & Contact" },
-  ];
-
-  const socialLinks = [
-    { icon: Instagram, href: "#", label: "Instagram" },
-    { icon: Youtube, href: "#", label: "YouTube" },
-    { icon: Linkedin, href: "#", label: "LinkedIn" },
-  ];
-
-  return (
-    <footer className="bg-card border-t border-border mt-20">
+  const quickLinks = [{
+    path: "/",
+    label: "Home"
+  }, {
+    path: "/courses",
+    label: "Courses & Services"
+  }, {
+    path: "/about",
+    label: "About & Contact"
+  }];
+  const socialLinks = [{
+    icon: Instagram,
+    href: "#",
+    label: "Instagram"
+  }, {
+    icon: Youtube,
+    href: "#",
+    label: "YouTube"
+  }, {
+    icon: Linkedin,
+    href: "#",
+    label: "LinkedIn"
+  }];
+  return <footer className="bg-card border-t border-border mt-20">
       <div className="container mx-auto px-4 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
           {/* Brand */}
@@ -24,7 +33,7 @@ export const Footer = () => {
             <div className="flex items-center gap-3 mb-4">
               <img src={logo} alt="Bluemantle" className="h-12 w-12 object-contain" />
               <div>
-                <h3 className="font-bold text-gradient-cyan">Bluemantle</h3>
+                <h3 className="font-bold text-gradient-cyan">Bluemantle LLP </h3>
                 <p className="text-xs text-muted-foreground">Institute of Technology</p>
               </div>
             </div>
@@ -37,16 +46,11 @@ export const Footer = () => {
           <div>
             <h4 className="font-bold mb-4 text-foreground">Quick Links</h4>
             <ul className="space-y-3">
-              {quickLinks.map((link) => (
-                <li key={link.path}>
-                  <Link
-                    to={link.path}
-                    className="text-sm text-muted-foreground hover:text-secondary transition-colors"
-                  >
+              {quickLinks.map(link => <li key={link.path}>
+                  <Link to={link.path} className="text-sm text-muted-foreground hover:text-secondary transition-colors">
                     {link.label}
                   </Link>
-                </li>
-              ))}
+                </li>)}
             </ul>
           </div>
 
@@ -78,18 +82,9 @@ export const Footer = () => {
           <div>
             <h4 className="font-bold mb-4 text-foreground">Follow Us</h4>
             <div className="flex gap-4">
-              {socialLinks.map((social) => (
-                <a
-                  key={social.label}
-                  href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-full bg-muted hover:bg-secondary hover:text-navy flex items-center justify-center transition-all hover:scale-110 glow-cyan"
-                  aria-label={social.label}
-                >
+              {socialLinks.map(social => <a key={social.label} href={social.href} target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-muted hover:bg-secondary hover:text-navy flex items-center justify-center transition-all hover:scale-110 glow-cyan" aria-label={social.label}>
                   <social.icon size={18} />
-                </a>
-              ))}
+                </a>)}
             </div>
           </div>
         </div>
@@ -98,6 +93,5 @@ export const Footer = () => {
           <p>© 2025 Bluemantle Institute of Technology. All rights reserved.</p>
         </div>
       </div>
-    </footer>
-  );
+    </footer>;
 };

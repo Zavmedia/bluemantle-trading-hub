@@ -118,9 +118,11 @@ const Courses = () => {
                     <MessageCircle className="mr-2" size={20} />
                     Ask for Free Demo Class
                   </Button>
-                  <Button size="lg" variant="outline">
-                    <Download className="mr-2" size={20} />
-                    Download Brochure
+                  <Button size="lg" variant="outline" asChild>
+                    <a href="/Bluemantle%20Brochure.pdf" download="Bluemantle-Brochure.pdf" target="_blank" rel="noopener noreferrer">
+                      <Download className="mr-2" size={20} />
+                      Download Brochure
+                    </a>
                   </Button>
                 </div>
               </div>

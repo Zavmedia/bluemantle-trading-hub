@@ -14,7 +14,7 @@ export const Footer = () => {
   }];
   const socialLinks = [{
     icon: Instagram,
-    href: "#",
+    href: "https://www.instagram.com/bluemantle.llp?igsh=dGV3d21yNTY3a3Rs",
     label: "Instagram"
   }, {
     icon: Youtube,

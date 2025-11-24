@@ -53,7 +53,7 @@ export const Navigation = () => {
               duration: 0.5,
               delay: 0.1
             }}>
-                Institute of Technology INSTITUTE OF TECHNOLOGY                        
+                INSTITUTE OF TECHNOLOGY                                                                                                                                                                        
               </motion.p>
             </div>
           </Link>

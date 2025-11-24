@@ -43,7 +43,7 @@ export const Navigation = () => {
             }}>
                 BLUEMANTLE LLP 
               </motion.h1>
-              <motion.p className="text-xs text-muted-foreground" initial={{
+              <motion.p initial={{
               opacity: 0,
               x: -20
             }} animate={{
@@ -52,8 +52,8 @@ export const Navigation = () => {
             }} transition={{
               duration: 0.5,
               delay: 0.1
-            }}>
-                Institute of Technology INSTITUTE OF TECHNOLOGY                        
+            }} className="text-xs text-muted-foreground mx-px">
+                INSTITUTE OF TECHNOLOGY                                                                                                                                                                        
               </motion.p>
             </div>
           </Link>

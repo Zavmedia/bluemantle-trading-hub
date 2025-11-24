@@ -75,7 +75,7 @@ const Home = () => {
               </p>
 
               <div className="flex flex-wrap gap-4 mb-12">
-                <Button size="lg" className="bg-gradient-cyan font-bold text-lg px-8 hover:opacity-90 glow-cyan shadow-lg rounded-sm text-cyan bg-slate-900 hover:bg-slate-800">
+                <Button size="lg" variant="outline" className="border-secondary text-secondary hover:bg-secondary hover:text-navy font-semibold text-lg px-8">
                   Explore Courses
                 </Button>
                 <Button size="lg" variant="outline" className="border-secondary text-secondary hover:bg-secondary hover:text-navy font-semibold text-lg px-8">

@@ -52,7 +52,7 @@ export const Navigation = () => {
             }} transition={{
               duration: 0.5,
               delay: 0.1
-            }} className="text-xs text-muted-foreground mx-0 my-0">
+            }} className="text-xs text-muted-foreground mx-0 my-px">
                 INSTITUTE OF TECHNOLOGY                                                                                                                                                                        
               </motion.p>
             </div>

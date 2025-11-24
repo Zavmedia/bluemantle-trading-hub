@@ -34,7 +34,7 @@ export const Footer = () => {
               <img src={logo} alt="Bluemantle" className="h-12 w-12 object-contain" />
               <div>
                 <h3 className="text-gradient-cyan font-semibold">BLUEMANTLE LLP </h3>
-                <p className="text-xs text-muted-foreground">Institute of Technology</p>
+                <p className="text-muted-foreground text-xs">INSTITUTE OF TECHNOLOGY</p>
               </div>
             </div>
             <p className="text-sm text-muted-foreground leading-relaxed">
@@ -62,7 +62,7 @@ export const Footer = () => {
                 <Phone size={16} className="mt-0.5 text-secondary flex-shrink-0" />
                 <div>
                   <p>+91 70345 40404</p>
-                  <p>04924 244022</p>
+                  <p>+91 04924 244022</p>
                 </div>
               </li>
               <li className="flex items-start gap-2 text-sm text-muted-foreground">

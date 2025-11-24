@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { TrendingUp, TrendingDown, Activity } from "lucide-react";
-import { motion, useAnimationControls } from "framer-motion";
+import { motion } from "framer-motion";
+import { supabase } from "@/integrations/supabase/client";
 
 interface MarketData {
   index: string;
@@ -18,6 +19,8 @@ export const MarketTicker = () => {
     { index: "NIFTY FMCG", value: 56234.20, change: 178.45, changePercent: 0.32 },
     { index: "NIFTY AUTO", value: 23456.80, change: -89.50, changePercent: -0.38 },
   ]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [lastUpdate, setLastUpdate] = useState<Date | null>(null);
 
   const [marketNews] = useState([
     "🔥 IT stocks rally on strong Q4 earnings outlook",
@@ -28,16 +31,39 @@ export const MarketTicker = () => {
     "💰 Market capitalisation hits new all-time high",
   ]);
 
+  const fetchMarketData = async () => {
+    try {
+      console.log('Fetching real-time market data...');
+      
+      const { data, error } = await supabase.functions.invoke('fetch-market-data', {
+        body: {},
+      });
+
+      if (error) {
+        console.error('Error fetching market data:', error);
+        return;
+      }
+
+      if (data?.success && data?.data) {
+        console.log('Market data updated successfully');
+        setMarketData(data.data);
+        setLastUpdate(new Date());
+        setIsLoading(false);
+      }
+    } catch (error) {
+      console.error('Failed to fetch market data:', error);
+      setIsLoading(false);
+    }
+  };
+
   useEffect(() => {
-    // Simulate live updates every 5 seconds
+    // Fetch immediately on mount
+    fetchMarketData();
+
+    // Refresh every 60 seconds (Yahoo Finance has rate limits)
     const interval = setInterval(() => {
-      setMarketData(prev => prev.map(item => ({
-        ...item,
-        value: item.value + (Math.random() - 0.5) * 50,
-        change: item.change + (Math.random() - 0.5) * 10,
-        changePercent: item.changePercent + (Math.random() - 0.5) * 0.2,
-      })));
-    }, 5000);
+      fetchMarketData();
+    }, 60000);
 
     return () => clearInterval(interval);
   }, []);
@@ -52,16 +78,23 @@ export const MarketTicker = () => {
 
       <div className="container mx-auto px-4 py-6 relative z-10">
         {/* Live Indicator */}
-        <div className="flex items-center gap-2 mb-4">
-          <motion.div
-            animate={{ scale: [1, 1.2, 1], opacity: [1, 0.5, 1] }}
-            transition={{ duration: 2, repeat: Infinity }}
-            className="w-2 h-2 rounded-full bg-red-500"
-          />
-          <span className="text-xs font-bold text-secondary uppercase tracking-wider flex items-center gap-1">
-            <Activity size={14} className="animate-pulse" />
-            Live Market Data
-          </span>
+        <div className="flex items-center justify-between mb-4">
+          <div className="flex items-center gap-2">
+            <motion.div
+              animate={{ scale: [1, 1.2, 1], opacity: [1, 0.5, 1] }}
+              transition={{ duration: 2, repeat: Infinity }}
+              className="w-2 h-2 rounded-full bg-red-500"
+            />
+            <span className="text-xs font-bold text-secondary uppercase tracking-wider flex items-center gap-1">
+              <Activity size={14} className="animate-pulse" />
+              {isLoading ? 'Loading...' : 'Live Market Data'}
+            </span>
+          </div>
+          {lastUpdate && (
+            <span className="text-xs text-muted-foreground">
+              Updated: {lastUpdate.toLocaleTimeString()}
+            </span>
+          )}
         </div>
 
         {/* Market Indices - Horizontal Scroll */}

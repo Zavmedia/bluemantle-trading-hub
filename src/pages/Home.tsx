@@ -4,6 +4,7 @@ import { Card } from "@/components/ui/card";
 import { TradingCandlesticks } from "@/components/TradingCandlesticks";
 import { Floating3DElements } from "@/components/Floating3DElements";
 import { AnimatedSphere } from "@/components/AnimatedSphere";
+import { MarketTicker } from "@/components/MarketTicker";
 import { Award, Users, BookOpen, TrendingUp, Shield, Target, Zap, MessageSquare, Calendar, Star } from "lucide-react";
 const Home = () => {
   const stats = [{
@@ -42,6 +43,9 @@ const Home = () => {
   }];
   const specialFeatures = ["WhatsApp Premium Community Support", "News Updates & Trading Plan Guidance", "Funded Accounts Assistance & Guidance", "Trading Psychology Sessions", "Revision Classes & Study Materials", "Dedicated Trading Floor Access"];
   return <div className="min-h-screen">
+      {/* Market Ticker */}
+      <MarketTicker />
+
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center overflow-hidden">
         {/* Animated background gradient */}

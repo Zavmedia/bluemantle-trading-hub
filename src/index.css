@@ -98,6 +98,11 @@ All colors MUST be HSL.
   50% { opacity: 1; }
 }
 
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
 @keyframes candlestick-grow {
   0% { transform: scaleY(0.7); opacity: 0.6; }
   50% { transform: scaleY(1.1); opacity: 1; }
@@ -170,5 +175,18 @@ All colors MUST be HSL.
 
   .bg-gradient-purple-cyan {
     background: linear-gradient(135deg, hsl(270 70% 60%), hsl(185 84% 50%));
+  }
+
+  .animate-scroll {
+    animation: scroll 30s linear infinite;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
   }
 }

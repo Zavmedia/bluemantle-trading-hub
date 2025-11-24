@@ -4,28 +4,21 @@ import { Button } from "@/components/ui/button";
 import { Floating3DElements } from "@/components/Floating3DElements";
 import { AnimatedSphere } from "@/components/AnimatedSphere";
 import { Phone, Mail, MapPin, Target, Eye, Users } from "lucide-react";
-
 const About = () => {
-  const teamMembers = [
-    {
-      name: "John Doe",
-      role: "Senior Trading Mentor",
-      bio: "NISM Certified with 10+ years experience",
-    },
-    {
-      name: "Jane Smith",
-      role: "Forex Specialist",
-      bio: "Expert in technical analysis & risk management",
-    },
-    {
-      name: "Mike Johnson",
-      role: "Options Trading Expert",
-      bio: "Specialized in derivatives & portfolio strategy",
-    },
-  ];
-
-  return (
-    <div className="min-h-screen pt-20">
+  const teamMembers = [{
+    name: "John Doe",
+    role: "Senior Trading Mentor",
+    bio: "NISM Certified with 10+ years experience"
+  }, {
+    name: "Jane Smith",
+    role: "Forex Specialist",
+    bio: "Expert in technical analysis & risk management"
+  }, {
+    name: "Mike Johnson",
+    role: "Options Trading Expert",
+    bio: "Specialized in derivatives & portfolio strategy"
+  }];
+  return <div className="min-h-screen pt-20">
       {/* Hero */}
       <section className="py-20 bg-gradient-to-b from-background via-purple-dark/10 to-card/50 relative overflow-hidden">
         <Floating3DElements />
@@ -36,11 +29,13 @@ const About = () => {
         </div>
         
         <div className="container mx-auto px-4 lg:px-8 relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="text-center max-w-3xl mx-auto"
-          >
+          <motion.div initial={{
+          opacity: 0,
+          y: 30
+        }} animate={{
+          opacity: 1,
+          y: 0
+        }} className="text-center max-w-3xl mx-auto">
             <h1 className="text-5xl lg:text-6xl font-bold mb-6">
               About <span className="text-gradient-purple">Bluemantle</span>
             </h1>
@@ -57,27 +52,34 @@ const About = () => {
         
         <div className="container mx-auto px-4 lg:px-8 relative z-10">
           <div className="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-            >
+            <motion.div initial={{
+            opacity: 0,
+            x: -30
+          }} whileInView={{
+            opacity: 1,
+            x: 0
+          }} viewport={{
+            once: true
+          }}>
               <Card className="p-8 bg-gradient-to-br from-purple/10 via-card to-muted border-2 border-purple/50 h-full relative overflow-hidden">
                 <div className="absolute top-0 right-0 w-32 h-32 bg-purple/20 rounded-full blur-2xl" />
                 <Eye className="w-12 h-12 text-purple mb-4 glow-purple relative z-10" />
                 <h2 className="text-3xl font-bold mb-4 relative z-10">Our Vision</h2>
                 <p className="text-lg text-muted-foreground leading-relaxed relative z-10">
-                  To empower students to become confident and independent financial market professionals 
-                  equipped with real-world trading skills and knowledge.
+                  To empower everyone to become confident and independent financial market professionals equipped with real-world trading skills and knowledge.
                 </p>
               </Card>
             </motion.div>
 
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-            >
+            <motion.div initial={{
+            opacity: 0,
+            x: 30
+          }} whileInView={{
+            opacity: 1,
+            x: 0
+          }} viewport={{
+            once: true
+          }}>
               <Card className="p-8 bg-gradient-to-br from-secondary/10 via-card to-muted border-2 border-secondary/50 h-full relative overflow-hidden">
                 <div className="absolute bottom-0 left-0 w-32 h-32 bg-secondary/20 rounded-full blur-2xl" />
                 <Target className="w-12 h-12 text-secondary mb-4 glow-cyan relative z-10" />
@@ -95,12 +97,15 @@ const About = () => {
       {/* About Content */}
       <section className="py-20 bg-gradient-to-b from-transparent to-card/50">
         <div className="container mx-auto px-4 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="max-w-4xl mx-auto text-center mb-16"
-          >
+          <motion.div initial={{
+          opacity: 0,
+          y: 30
+        }} whileInView={{
+          opacity: 1,
+          y: 0
+        }} viewport={{
+          once: true
+        }} className="max-w-4xl mx-auto text-center mb-16">
             <h2 className="text-4xl font-bold mb-6">Who We Are</h2>
             <p className="text-lg text-muted-foreground leading-relaxed">
               Bluemantle Institute of Technology is a professional trading institute dedicated to delivering 
@@ -116,12 +121,15 @@ const About = () => {
       {/* Team */}
       <section className="py-20">
         <div className="container mx-auto px-4 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-12"
-          >
+          <motion.div initial={{
+          opacity: 0,
+          y: 30
+        }} whileInView={{
+          opacity: 1,
+          y: 0
+        }} viewport={{
+          once: true
+        }} className="text-center mb-12">
             <Users className="w-16 h-16 text-primary mx-auto mb-4" />
             <h2 className="text-4xl font-bold mb-4">
               Meet Our <span className="text-gradient-cyan">Expert Team</span>
@@ -130,14 +138,17 @@ const About = () => {
           </motion.div>
 
           <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-            {teamMembers.map((member, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-              >
+            {teamMembers.map((member, i) => <motion.div key={i} initial={{
+            opacity: 0,
+            y: 30
+          }} whileInView={{
+            opacity: 1,
+            y: 0
+          }} viewport={{
+            once: true
+          }} transition={{
+            delay: i * 0.1
+          }}>
                 <Card className="p-6 text-center bg-card border-border hover:border-secondary transition-all hover:shadow-2xl">
                   <div className="w-24 h-24 bg-gradient-cyan rounded-full mx-auto mb-4 flex items-center justify-center">
                     <Users size={40} className="text-navy" />
@@ -146,8 +157,7 @@ const About = () => {
                   <p className="text-secondary font-semibold mb-2">{member.role}</p>
                   <p className="text-sm text-muted-foreground">{member.bio}</p>
                 </Card>
-              </motion.div>
-            ))}
+              </motion.div>)}
           </div>
         </div>
       </section>
@@ -155,12 +165,15 @@ const About = () => {
       {/* Contact */}
       <section className="py-20 bg-gradient-to-b from-transparent to-card/50">
         <div className="container mx-auto px-4 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-12"
-          >
+          <motion.div initial={{
+          opacity: 0,
+          y: 30
+        }} whileInView={{
+          opacity: 1,
+          y: 0
+        }} viewport={{
+          once: true
+        }} className="text-center mb-12">
             <h2 className="text-4xl font-bold mb-4">Get in Touch</h2>
             <p className="text-xl text-muted-foreground">We're here to help you start your trading journey</p>
           </motion.div>
@@ -206,23 +219,12 @@ const About = () => {
             <Card className="p-8 bg-card border-border">
               <h3 className="text-2xl font-bold mb-6">Visit Us</h3>
               <div className="w-full h-64 rounded-lg overflow-hidden border border-border">
-                <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3918.2281699999997!2d76.6547!3d10.7867!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTDCsDQ3JzEyLjEiTiA3NsKwMzknMTYuOSJF!5e0!3m2!1sen!2sin!4v1234567890"
-                  width="100%"
-                  height="100%"
-                  style={{ border: 0 }}
-                  allowFullScreen
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  title="Bluemantle Institute Location"
-                />
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3918.2281699999997!2d76.6547!3d10.7867!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTDCsDQ3JzEyLjEiTiA3NsKwMzknMTYuOSJF!5e0!3m2!1sen!2sin!4v1234567890" width="100%" height="100%" style={{
+                border: 0
+              }} allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade" title="Bluemantle Institute Location" />
               </div>
               <Button variant="outline" className="mt-4 w-full" asChild>
-                <a 
-                  href="https://maps.google.com/?q=Bluemantle+Institute+of+Technology+Palakkad" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                >
+                <a href="https://maps.google.com/?q=Bluemantle+Institute+of+Technology+Palakkad" target="_blank" rel="noopener noreferrer">
                   <MapPin className="w-4 h-4 mr-2" />
                   Open in Google Maps
                 </a>
@@ -231,8 +233,6 @@ const About = () => {
           </div>
         </div>
       </section>
-    </div>
-  );
+    </div>;
 };
-
 export default About;

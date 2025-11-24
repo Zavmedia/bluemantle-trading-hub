@@ -23,30 +23,37 @@ export const Navigation = () => {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3">
-            <motion.img 
-              src={logo} 
-              alt="Bluemantle Institute" 
-              className="h-14 w-14 object-contain" 
-              whileHover={{ rotate: 360, scale: 1.1 }}
-              transition={{ duration: 0.6 }}
-            />
+            <motion.img src={logo} alt="Bluemantle Institute" className="h-14 w-14 object-contain" whileHover={{
+            rotate: 360,
+            scale: 1.1
+          }} transition={{
+            duration: 0.6
+          }} />
             <div className="hidden sm:block">
-              <motion.h1 
-                className="text-xl font-bold text-gradient-cyan"
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.5 }}
-                whileHover={{ scale: 1.05 }}
-              >
-                Bluemantle LLP 
+              <motion.h1 className="text-xl font-bold text-gradient-cyan" initial={{
+              opacity: 0,
+              x: -20
+            }} animate={{
+              opacity: 1,
+              x: 0
+            }} transition={{
+              duration: 0.5
+            }} whileHover={{
+              scale: 1.05
+            }}>
+                BLUEMANTLE LLP 
               </motion.h1>
-              <motion.p 
-                className="text-xs text-muted-foreground"
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.5, delay: 0.1 }}
-              >
-                Institute of Technology
+              <motion.p className="text-xs text-muted-foreground" initial={{
+              opacity: 0,
+              x: -20
+            }} animate={{
+              opacity: 1,
+              x: 0
+            }} transition={{
+              duration: 0.5,
+              delay: 0.1
+            }}>
+                Institute of Technology INSTITUTE OF TECHNOLOGY                        
               </motion.p>
             </div>
           </Link>

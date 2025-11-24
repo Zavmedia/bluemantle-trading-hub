@@ -33,7 +33,7 @@ export const Footer = () => {
             <div className="flex items-center gap-3 mb-4">
               <img src={logo} alt="Bluemantle" className="h-12 w-12 object-contain" />
               <div>
-                <h3 className="text-gradient-cyan font-semibold">BLUEMANTLE LLP </h3>
+                <h3 className="text-gradient-cyan font-semibold text-lg">BLUEMANTLE LLP </h3>
                 <p className="text-muted-foreground text-xs">INSTITUTE OF TECHNOLOGY</p>
               </div>
             </div>

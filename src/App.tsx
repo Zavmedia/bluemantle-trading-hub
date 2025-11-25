@@ -9,6 +9,7 @@ import { WhatsAppButton } from "@/components/WhatsAppButton";
 import Home from "./pages/Home";
 import Courses from "./pages/Courses";
 import About from "./pages/About";
+import Apply from "./pages/Apply";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -25,6 +26,7 @@ const App = () => (
             <Route path="/" element={<Home />} />
             <Route path="/courses" element={<Courses />} />
             <Route path="/about" element={<About />} />
+            <Route path="/apply" element={<Apply />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
           <Footer />

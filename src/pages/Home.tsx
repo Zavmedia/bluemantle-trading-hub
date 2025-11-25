@@ -1,4 +1,6 @@
 import { motion } from "framer-motion";
+import { useEffect } from "react";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { TradingCandlesticks } from "@/components/TradingCandlesticks";
@@ -6,7 +8,23 @@ import { Floating3DElements } from "@/components/Floating3DElements";
 import { AnimatedSphere } from "@/components/AnimatedSphere";
 import { MarketTicker } from "@/components/MarketTicker";
 import { Award, Users, BookOpen, TrendingUp, Shield, Target, Zap, MessageSquare, Calendar, Star } from "lucide-react";
+import { useToast } from "@/hooks/use-toast";
 const Home = () => {
+  const { toast } = useToast();
+
+  // Check for submission success notification
+  useEffect(() => {
+    const submissionSuccess = sessionStorage.getItem('submission_success');
+    if (submissionSuccess === 'true') {
+      toast({
+        title: "Application Submitted Successfully! 🎉",
+        description: "We'll contact you soon to discuss your trading journey.",
+        duration: 10000,
+      });
+      sessionStorage.removeItem('submission_success');
+    }
+  }, [toast]);
+
   const stats = [{
     value: "24,400+",
     label: "Students Enrolled"
@@ -249,8 +267,8 @@ const Home = () => {
                 Join thousands of successful traders who transformed their lives with Bluemantle
               </p>
               <div className="flex flex-wrap gap-4 justify-center">
-                <Button size="lg" className="bg-navy text-secondary font-bold text-lg px-8 hover:bg-navy/90 glow-purple">
-                  Apply Now
+                <Button size="lg" className="bg-navy text-secondary font-bold text-lg px-8 hover:bg-navy/90 glow-purple" asChild>
+                  <Link to="/apply">Apply Now</Link>
                 </Button>
                 <Button size="lg" variant="outline" className="border-navy font-semibold text-lg px-8 bg-slate-950 hover:bg-slate-800 opacity-100 rounded-md text-violet-700" asChild>
                   <a href="/Bluemantle%20Brochure.pdf" download="Bluemantle-Brochure.pdf" target="_blank" rel="noopener noreferrer">

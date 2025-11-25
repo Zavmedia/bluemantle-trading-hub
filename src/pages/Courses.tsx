@@ -1,8 +1,26 @@
 import { motion } from "framer-motion";
+import { useEffect } from "react";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { CheckCircle, Download, MessageCircle, Calendar, Award, TrendingUp, BookOpen, Users, Target } from "lucide-react";
+import { useToast } from "@/hooks/use-toast";
 const Courses = () => {
+  const { toast } = useToast();
+
+  // Check for submission success notification
+  useEffect(() => {
+    const submissionSuccess = sessionStorage.getItem('submission_success');
+    if (submissionSuccess === 'true') {
+      toast({
+        title: "Application Submitted Successfully! 🎉",
+        description: "We'll contact you soon to discuss your trading journey.",
+        duration: 10000,
+      });
+      sessionStorage.removeItem('submission_success');
+    }
+  }, [toast]);
+
   const masterCourseModules = ["Introduction to Stock Market and Forex", "Fundamental Analysis", "Technical Analysis & Indicators", "Intraday Stock Trading Strategies", "Options Trading & Derivatives", "Risk Management and Position Sizing", "Commodity (Gold) Trading", "Funded Accounts Assistance & Guidance", "Trading Psychology", "Backtesting & Trading Plan Development", "Live Trading Sessions"];
   const nismBenefits = ["Career-focused financial certification", "Real-world market content", "Complete exam guidance and support", "Industry-recognized qualification", "Placement assistance"];
   const additionalServices = [{
@@ -95,8 +113,8 @@ const Courses = () => {
                 </div>
 
                 <div className="flex flex-wrap gap-4 pt-6 border-t border-border">
-                  <Button size="lg" className="bg-gradient-cyan font-bold glow-cyan text-slate-50">
-                    Apply Now
+                  <Button size="lg" className="bg-gradient-cyan font-bold glow-cyan text-slate-50" asChild>
+                    <Link to="/apply">Apply Now</Link>
                   </Button>
                   <Button size="lg" variant="outline" className="border-secondary text-secondary hover:bg-secondary hover:text-navy">
                     <MessageCircle className="mr-2" size={20} />
@@ -169,8 +187,8 @@ const Courses = () => {
                 </div>
 
                 <div className="flex flex-wrap gap-4">
-                  <Button size="lg" className="bg-gradient-to-r from-accent to-accent/80 text-navy font-bold glow-gold">
-                    Register Now
+                  <Button size="lg" className="bg-gradient-to-r from-accent to-accent/80 text-navy font-bold glow-gold" asChild>
+                    <Link to="/apply">Register Now</Link>
                   </Button>
                   <Button size="lg" variant="outline" className="border-accent text-accent hover:bg-accent hover:text-navy">
                     <MessageCircle className="mr-2" size={20} />

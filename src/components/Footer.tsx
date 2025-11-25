@@ -18,11 +18,11 @@ export const Footer = () => {
     label: "Instagram"
   }, {
     icon: Youtube,
-    href: "#",
+    href: "https://youtube.com/@bluemantleinstitute?si=N3F8zemYRhe2-d_a",
     label: "YouTube"
   }, {
     icon: Linkedin,
-    href: "#",
+    href: "https://www.linkedin.com/company/bluemantle/",
     label: "LinkedIn"
   }];
   return <footer className="bg-card border-t border-border mt-20">

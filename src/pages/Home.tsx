@@ -93,8 +93,8 @@ const Home = () => {
               </p>
 
               <div className="flex flex-wrap gap-4 mb-12">
-                <Button size="lg" variant="outline" className="border-secondary text-secondary hover:bg-secondary hover:text-navy font-semibold text-lg px-8">
-                  Explore Courses
+                <Button size="lg" variant="outline" className="border-secondary text-secondary hover:bg-secondary hover:text-navy font-semibold text-lg px-8" asChild>
+                  <Link to="/courses">Explore Courses</Link>
                 </Button>
                 <Button size="lg" variant="outline" className="border-secondary text-secondary hover:bg-secondary hover:text-navy font-semibold text-lg px-8">
                   Join Free Webinar
@@ -238,8 +238,8 @@ const Home = () => {
               Get Bluemantle Institute Certification along with NISM Certification Guidance & Exam Assistance. 
               Build a strong foundation for your financial market career.
             </p>
-            <Button size="lg" className="bg-gradient-to-r from-accent to-accent/80 text-navy font-bold text-lg px-8 glow-gold">
-              Get Certified
+            <Button size="lg" className="bg-gradient-to-r from-accent to-accent/80 text-navy font-bold text-lg px-8 glow-gold" asChild>
+              <Link to="/apply">Get Certified</Link>
             </Button>
           </motion.div>
         </div>

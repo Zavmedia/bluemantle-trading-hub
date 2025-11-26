@@ -245,7 +245,7 @@ const Home = () => {
                 repeat: Infinity,
                 ease: "linear"
               }}
-              className="w-24 h-24 mx-auto mb-6 relative"
+              className="w-40 h-40 absolute right-10 top-10 opacity-40 z-0"
               style={{ transformStyle: "preserve-3d" }}
             >
               <img 

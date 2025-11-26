@@ -58,6 +58,10 @@ const Home = () => {
     icon: BookOpen,
     title: "No Prerequisites",
     desc: "Start from scratch"
+  }, {
+    icon: Shield,
+    title: "Lifetime Support",
+    desc: "Ongoing guidance & assistance"
   }];
   const specialFeatures = ["WhatsApp Premium Community Support", "News Updates & Trading Plan Guidance", "Funded Accounts Assistance & Guidance", "Trading Psychology Sessions", "Revision Classes & Study Materials", "Dedicated Trading Floor Access"];
   return <div className="min-h-screen">

@@ -236,18 +236,6 @@ const Home = () => {
         }} viewport={{
           once: true
         }} className="max-w-4xl mx-auto text-center">
-            {/* Rotating Logo */}
-            <motion.div animate={{
-            rotateY: 360
-          }} transition={{
-            duration: 8,
-            repeat: Infinity,
-            ease: "linear"
-          }} className="w-40 h-40 absolute right-10 top-10 opacity-40 z-0" style={{
-            transformStyle: "preserve-3d"
-          }}>
-              <img src={logoIcon} alt="Bluemantle Logo" className="w-full h-full object-contain glow-gold" />
-            </motion.div>
             <Award className="w-16 h-16 text-accent mx-auto mb-6 glow-gold" />
             <h2 className="text-4xl lg:text-5xl font-bold mb-6">
               Excel Your Career with <span className="text-gradient-gold">NISM Certifications</span>

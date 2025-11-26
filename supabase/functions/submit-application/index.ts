@@ -6,7 +6,7 @@ const corsHeaders = {
 };
 
 // Google Apps Script Web App URL
-const GOOGLE_SHEETS_URL = "https://script.google.com/macros/s/AKfycbyCqoxL0R7_ZUqWekE6OHqHd93KkrYMHCIaabLkBfXESZ_4kLtuEOu_3bVRON0AFmU/exec";
+const GOOGLE_SHEETS_URL = "https://script.google.com/macros/s/AKfycbxmOYNU0Gn-hOFFZ5s5g5pz5p3pGNiD_SHthxvXFO60PBdAbEi-MZ693M7cI1736519/exec";
 
 serve(async (req) => {
   // Handle CORS preflight requests

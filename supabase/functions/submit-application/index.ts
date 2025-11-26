@@ -18,10 +18,10 @@ serve(async (req) => {
     console.log('Submit application function called');
 
     // Parse request body
-    const { name, mobile, email, age, qualification } = await req.json();
+    const { name, mobile, email, address, qualification } = await req.json();
 
     // Server-side validation
-    if (!name || !mobile || !email || !age || !qualification) {
+    if (!name || !mobile || !email || !address || !qualification) {
       console.error('Validation failed: Missing required fields');
       return new Response(
         JSON.stringify({ error: 'All fields are required' }),
@@ -56,12 +56,12 @@ serve(async (req) => {
       );
     }
 
-    // Validate age
-    const ageNum = parseInt(age);
-    if (isNaN(ageNum) || ageNum < 18 || ageNum > 100) {
-      console.error('Validation failed: Invalid age');
+    // Validate address (max 50 words)
+    const addressWordCount = address.trim().split(/\s+/).length;
+    if (addressWordCount > 50) {
+      console.error('Validation failed: Address exceeds 50 words');
       return new Response(
-        JSON.stringify({ error: 'Age must be between 18 and 100' }),
+        JSON.stringify({ error: 'Address must not exceed 50 words' }),
         { status: 400, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
       );
     }
@@ -82,12 +82,12 @@ serve(async (req) => {
       name,
       mobile,
       email,
-      age: age.toString(),
+      address,
       qualification,
       timestamp
     });
 
-    console.log('Sending data to Google Sheets:', { name, mobile, email, age, qualification, timestamp });
+    console.log('Sending data to Google Sheets:', { name, mobile, email, address, qualification, timestamp });
 
     // Send to Google Sheets
     const response = await fetch(GOOGLE_SHEETS_URL, {

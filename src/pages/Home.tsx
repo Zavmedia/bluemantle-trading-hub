@@ -11,7 +11,9 @@ import { Award, Users, BookOpen, TrendingUp, Shield, Target, Zap, MessageSquare,
 import { useToast } from "@/hooks/use-toast";
 import logoIcon from "@/assets/logo-icon.ico";
 const Home = () => {
-  const { toast } = useToast();
+  const {
+    toast
+  } = useToast();
 
   // Check for submission success notification
   useEffect(() => {
@@ -20,12 +22,11 @@ const Home = () => {
       toast({
         title: "Application Submitted Successfully! 🎉",
         description: "We'll contact you soon to discuss your trading journey.",
-        duration: 10000,
+        duration: 10000
       });
       sessionStorage.removeItem('submission_success');
     }
   }, [toast]);
-
   const stats = [{
     value: "24,400+",
     label: "Students Enrolled"
@@ -236,23 +237,16 @@ const Home = () => {
           once: true
         }} className="max-w-4xl mx-auto text-center">
             {/* Rotating Logo */}
-            <motion.div
-              animate={{ 
-                rotateY: 360,
-              }}
-              transition={{
-                duration: 8,
-                repeat: Infinity,
-                ease: "linear"
-              }}
-              className="w-40 h-40 absolute right-10 top-10 opacity-40 z-0"
-              style={{ transformStyle: "preserve-3d" }}
-            >
-              <img 
-                src={logoIcon} 
-                alt="Bluemantle Logo" 
-                className="w-full h-full object-contain glow-gold"
-              />
+            <motion.div animate={{
+            rotateY: 360
+          }} transition={{
+            duration: 8,
+            repeat: Infinity,
+            ease: "linear"
+          }} className="w-40 h-40 absolute right-10 top-10 opacity-40 z-0" style={{
+            transformStyle: "preserve-3d"
+          }}>
+              <img src={logoIcon} alt="Bluemantle Logo" className="w-full h-full object-contain glow-gold" />
             </motion.div>
             <Award className="w-16 h-16 text-accent mx-auto mb-6 glow-gold" />
             <h2 className="text-4xl lg:text-5xl font-bold mb-6">
@@ -295,7 +289,7 @@ const Home = () => {
                   <Link to="/apply">Apply Now</Link>
                 </Button>
                 <Button size="lg" variant="outline" className="border-navy font-semibold text-lg px-8 bg-slate-950 hover:bg-slate-800 opacity-100 rounded-md text-violet-700" asChild>
-                  <a href="/Bluemantle%20Brochure.pdf" download="Bluemantle-Brochure.pdf" target="_blank" rel="noopener noreferrer">
+                  <a href="/Bluemantle%20Brochure.pdf" download="Bluemantle-Brochure.pdf" target="_blank" rel="noopener noreferrer" className="text-secondary">
                     Download Brochure
                   </a>
                 </Button>

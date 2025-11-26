@@ -6,16 +6,16 @@ import { AnimatedSphere } from "@/components/AnimatedSphere";
 import { Phone, Mail, MapPin, Target, Eye, Users } from "lucide-react";
 const About = () => {
   const teamMembers = [{
-    name: "John Doe",
-    role: "Senior Trading Mentor",
-    bio: "NISM Certified with 10+ years experience"
+    name: "PRASANTH PHILIP",
+    role: "FOUNDER & DIRECTOR",
+    bio: "Provides Overall Leadership  and Strategic Direction for the Company"
   }, {
-    name: "Jane Smith",
-    role: "Forex Specialist",
-    bio: "Expert in technical analysis & risk management"
+    name: "SONIYA PRASANTH",
+    role: "DIRECTOR AND GENERAL MANAGER",
+    bio: "Oversees Daily Operations and Ensures Smooth,Efficient Management"
   }, {
-    name: "Mike Johnson",
-    role: "Options Trading Expert",
+    name: "VYSHAKH G",
+    role: "HEAD OF DERIVATIVES AND TECHNICAL RESEARCH",
     bio: "Specialized in derivatives & portfolio strategy"
   }];
   return <div className="min-h-screen pt-20">

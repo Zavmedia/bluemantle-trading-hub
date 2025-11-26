@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Card } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
@@ -19,9 +20,11 @@ const applySchema = z.object({
     .regex(/^[0-9]{10}$/, "Mobile number must be exactly 10 digits"),
   email: z.string()
     .email("Invalid email format"),
-  age: z.number()
-    .min(18, "Age must be at least 18")
-    .max(100, "Age must be less than 100"),
+  address: z.string()
+    .min(1, "Address is required")
+    .refine((val) => val.trim().split(/\s+/).length <= 50, {
+      message: "Address must not exceed 50 words"
+    }),
   qualification: z.enum(["High School", "UG", "PG", "Others"], {
     errorMap: () => ({ message: "Please select a qualification" })
   })
@@ -31,7 +34,7 @@ type FormData = {
   name: string;
   mobile: string;
   email: string;
-  age: string;
+  address: string;
   qualification: string;
 };
 
@@ -44,7 +47,7 @@ const Apply = () => {
     name: "",
     mobile: "",
     email: "",
-    age: "",
+    address: "",
     qualification: ""
   });
   const [errors, setErrors] = useState<Partial<Record<keyof FormData, string>>>({});
@@ -65,7 +68,6 @@ const Apply = () => {
     try {
       const validatedData = applySchema.parse({
         ...formData,
-        age: parseInt(formData.age),
         qualification: formData.qualification as any
       });
 
@@ -224,24 +226,19 @@ const Apply = () => {
                 )}
               </div>
 
-              {/* Age */}
+              {/* Address */}
               <div>
-                <Label htmlFor="age">Age *</Label>
-                <Input
-                  id="age"
-                  type="number"
-                  value={formData.age}
-                  onChange={(e) => {
-                    const value = e.target.value.replace(/\D/g, "");
-                    handleInputChange("age", value);
-                  }}
-                  placeholder="Enter your age"
-                  className={errors.age ? "border-red-500" : ""}
-                  min="18"
-                  max="100"
+                <Label htmlFor="address">Address *</Label>
+                <Textarea
+                  id="address"
+                  value={formData.address}
+                  onChange={(e) => handleInputChange("address", e.target.value)}
+                  placeholder="Enter your address (max 50 words)"
+                  className={errors.address ? "border-red-500" : ""}
+                  rows={3}
                 />
-                {errors.age && (
-                  <p className="text-sm text-red-500 mt-1">{errors.age}</p>
+                {errors.address && (
+                  <p className="text-sm text-red-500 mt-1">{errors.address}</p>
                 )}
               </div>
 

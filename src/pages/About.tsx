@@ -16,7 +16,7 @@ const About = () => {
   }, {
     name: "VYSHAKH G",
     role: "HEAD OF DERIVATIVES AND TECHNICAL RESEARCH",
-    bio: "Specialized in derivatives & portfolio strategy"
+    bio: "NISM(SEBI)Certified with 8+ years of Experince In Derivatives Market"
   }];
   return <div className="min-h-screen pt-20">
       {/* Hero */}

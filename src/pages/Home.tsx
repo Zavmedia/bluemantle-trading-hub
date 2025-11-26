@@ -289,7 +289,7 @@ const Home = () => {
                   <Link to="/apply">Apply Now</Link>
                 </Button>
                 <Button size="lg" variant="outline" className="border-navy font-semibold text-lg px-8 bg-slate-950 hover:bg-slate-800 opacity-100 rounded-md text-violet-700" asChild>
-                  <a href="/Bluemantle%20Brochure.pdf" download="Bluemantle-Brochure.pdf" target="_blank" rel="noopener noreferrer" className="text-secondary">
+                  <a href="/Bluemantle%20Brochure.pdf" download="Bluemantle-Brochure.pdf" target="_blank" rel="noopener noreferrer" className="text-cyan-400">
                     Download Brochure
                   </a>
                 </Button>

@@ -9,6 +9,7 @@ import { AnimatedSphere } from "@/components/AnimatedSphere";
 import { MarketTicker } from "@/components/MarketTicker";
 import { Award, Users, BookOpen, TrendingUp, Shield, Target, Zap, MessageSquare, Calendar, Star } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import logoIcon from "@/assets/logo-icon.ico";
 const Home = () => {
   const { toast } = useToast();
 
@@ -234,7 +235,26 @@ const Home = () => {
         }} viewport={{
           once: true
         }} className="max-w-4xl mx-auto text-center">
-            <Award className="w-20 h-20 text-accent mx-auto mb-6 glow-gold" />
+            {/* Rotating Logo */}
+            <motion.div
+              animate={{ 
+                rotateY: 360,
+              }}
+              transition={{
+                duration: 8,
+                repeat: Infinity,
+                ease: "linear"
+              }}
+              className="w-24 h-24 mx-auto mb-6 relative"
+              style={{ transformStyle: "preserve-3d" }}
+            >
+              <img 
+                src={logoIcon} 
+                alt="Bluemantle Logo" 
+                className="w-full h-full object-contain glow-gold"
+              />
+            </motion.div>
+            <Award className="w-16 h-16 text-accent mx-auto mb-6 glow-gold" />
             <h2 className="text-4xl lg:text-5xl font-bold mb-6">
               Excel Your Career with <span className="text-gradient-gold">NISM Certifications</span>
             </h2>

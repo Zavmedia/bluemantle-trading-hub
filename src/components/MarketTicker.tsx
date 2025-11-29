@@ -20,12 +20,16 @@ export const MarketTicker = () => {
   const [lastUpdate, setLastUpdate] = useState<Date | null>(null);
 
   const [marketNews] = useState([
-    "🔥 IT stocks rally on strong Q4 earnings outlook",
-    "💹 Banking sector shows resilience amid global volatility",
-    "📈 FII inflows boost market sentiment across sectors",
-    "⚡ Pharma stocks gain momentum on export demand",
-    "🎯 Auto sector rebounds with improved sales numbers",
-    "💰 Market capitalisation hits new all-time high",
+    "🇮🇳 Nifty 50 maintains momentum as FII activity surges",
+    "💰 Gold futures hit fresh highs amid global uncertainty",
+    "📊 Banking stocks lead market gains on strong credit growth",
+    "💱 Dollar Index stabilizes as Fed signals policy pause",
+    "⚡ Indian markets outperform Asian peers on domestic strength",
+    "🌏 EUR/USD trades sideways ahead of ECB meeting",
+    "💹 Sensex inches closer to 86,000 milestone",
+    "🔥 USD/JPY volatility increases on BOJ policy speculation",
+    "📈 Silver futures surge on industrial demand outlook",
+    "🎯 Bank Nifty shows resilience amid rate cycle expectations",
   ]);
 
   const fetchMarketData = async () => {

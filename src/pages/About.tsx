@@ -5,18 +5,21 @@ import { Floating3DElements } from "@/components/Floating3DElements";
 import { AnimatedSphere } from "@/components/AnimatedSphere";
 import { Phone, Mail, MapPin, Target, Eye, Users } from "lucide-react";
 const About = () => {
-  const teamMembers = [{
+const teamMembers = [{
     name: "PRASANTH PHILIP",
     role: "FOUNDER & DIRECTOR",
-    bio: "Provides Overall Leadership  and Strategic Direction for the Company"
+    bio: "Provides Overall Leadership  and Strategic Direction for the Company",
+    image: "/siju.jpg"
   }, {
     name: "SONIYA PRASANTH",
     role: "DIRECTOR AND GENERAL MANAGER",
-    bio: "Oversees Daily Operations and Ensures Smooth,Efficient Management"
+    bio: "Oversees Daily Operations and Ensures Smooth,Efficient Management",
+    image: "/Soni.jpg"
   }, {
     name: "VYSHAKH G",
     role: "HEAD OF DERIVATIVES AND TECHNICAL RESEARCH",
-    bio: "NISM(SEBI)Certified with 8+ years of Experince In Derivatives Market"
+    bio: "NISM(SEBI)Certified with 8+ years of Experince In Derivatives Market",
+    image: "/Vyshakh G .jpg"
   }];
   return <div className="min-h-screen pt-20">
       {/* Hero */}
@@ -150,8 +153,12 @@ const About = () => {
             delay: i * 0.1
           }}>
                 <Card className="p-6 text-center bg-card border-border hover:border-secondary transition-all hover:shadow-2xl">
-                  <div className="w-24 h-24 bg-gradient-cyan rounded-full mx-auto mb-4 flex items-center justify-center">
-                    <Users size={40} className="text-navy" />
+                  <div className="w-24 h-24 rounded-full mx-auto mb-4 overflow-hidden border-2 border-secondary/50">
+                    <img 
+                      src={member.image} 
+                      alt={member.name}
+                      className="w-full h-full object-cover"
+                    />
                   </div>
                   <h3 className="text-xl font-bold mb-2">{member.name}</h3>
                   <p className="text-secondary font-semibold mb-2">{member.role}</p>

@@ -17,7 +17,7 @@ interface MarketData {
 const SYMBOLS = {
   'NIFTY 50': '^NSEI',
   'SENSEX': '^BSESN',
-  'BANK NIFTY': '^NSEBANK'
+  'BANK NIFTY': '^NSEBANK',
   'XAUUSD': 'GC=F',  // Gold Futures
   'XAGUSD': 'SI=F',  // Silver Futures
   'USDJPY': 'USDJPY=X',

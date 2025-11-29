@@ -14,7 +14,7 @@ const teamMembers = [{
     name: "SONIYA PRASANTH",
     role: "DIRECTOR AND GENERAL MANAGER",
     bio: "Oversees Daily Operations and Ensures Smooth,Efficient Management",
-    image: "/Soni.jpg"
+    image: "/Sony.jpg"
   }, {
     name: "VYSHAKH G",
     role: "HEAD OF DERIVATIVES AND TECHNICAL RESEARCH",

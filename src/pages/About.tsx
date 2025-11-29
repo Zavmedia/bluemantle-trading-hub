@@ -224,7 +224,7 @@ const About = () => {
               }} allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade" title="Bluemantle Institute Location" />
               </div>
               <Button variant="outline" className="mt-4 w-full" asChild>
-                <a href="https://maps.google.com/?q=Bluemantle+Institute+of+Technology+Palakkad" target="_blank" rel="noopener noreferrer">
+                <a target="_blank" rel="noopener noreferrer" href="https://maps.app.goo.gl/SidqWGEdr28qhxfF8">
                   <MapPin className="w-4 h-4 mr-2" />
                   Open in Google Maps
                 </a>

@@ -15,9 +15,6 @@ export const MarketTicker = () => {
     { index: "NIFTY 50", value: 24857.30, change: 234.50, changePercent: 0.95 },
     { index: "SENSEX", value: 82890.94, change: 692.27, changePercent: 0.84 },
     { index: "BANK NIFTY", value: 53234.85, change: -156.30, changePercent: -0.29 },
-    { index: "NIFTY IT", value: 42876.15, change: 445.80, changePercent: 1.05 },
-    { index: "NIFTY FMCG", value: 56234.20, change: 178.45, changePercent: 0.32 },
-    { index: "NIFTY AUTO", value: 23456.80, change: -89.50, changePercent: -0.38 },
   ]);
   const [isLoading, setIsLoading] = useState(true);
   const [lastUpdate, setLastUpdate] = useState<Date | null>(null);

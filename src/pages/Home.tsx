@@ -75,7 +75,7 @@ const Home = () => {
         {/* Animated candlesticks */}
         <TradingCandlesticks />
 
-        <div className="container mx-auto px-4 lg:px-8 relative z-10">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="max-w-3xl">
             <motion.div initial={{
             opacity: 0,
@@ -86,29 +86,29 @@ const Home = () => {
           }} transition={{
             duration: 0.8
           }}>
-              <h1 className="text-5xl lg:text-7xl font-black mb-6 leading-tight">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-black mb-4 sm:mb-6 leading-tight break-words">
                 Master Trading.{" "}
                 <span className="text-gradient-cyan">Build Wealth.</span>
                 <br />
                 <span className="text-gradient-gold">Transform Your Future.</span>
               </h1>
               
-              <p className="text-xl text-muted-foreground mb-8 leading-relaxed max-w-2xl">
+              <p className="text-base sm:text-lg lg:text-xl text-muted-foreground mb-6 sm:mb-8 leading-relaxed max-w-2xl">
                 Learn from NISM certified mentors. Master the Indian Stock Market & Forex Trading 
                 with expert guidance, live sessions, and comprehensive support.
               </p>
 
-              <div className="flex flex-wrap gap-4 mb-12">
-                <Button size="lg" variant="outline" className="border-secondary text-secondary hover:bg-secondary hover:text-navy font-semibold text-lg px-8" asChild>
+              <div className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4 mb-8 sm:mb-12">
+                <Button size="lg" variant="outline" className="border-secondary text-secondary hover:bg-secondary hover:text-navy font-semibold text-base sm:text-lg px-6 sm:px-8 w-full sm:w-auto" asChild>
                   <Link to="/courses">Explore Courses</Link>
                 </Button>
-                <Button size="lg" variant="outline" className="border-secondary text-secondary hover:bg-secondary hover:text-navy font-semibold text-lg px-8">
+                <Button size="lg" variant="outline" className="border-secondary text-secondary hover:bg-secondary hover:text-navy font-semibold text-base sm:text-lg px-6 sm:px-8 w-full sm:w-auto">
                   Join Free Webinar
                 </Button>
               </div>
 
               {/* Stats */}
-              <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
+              <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
                 {stats.map((stat, i) => <motion.div key={i} initial={{
                 opacity: 0,
                 y: 20
@@ -118,8 +118,8 @@ const Home = () => {
               }} transition={{
                 delay: 0.2 + i * 0.1
               }} className="text-center lg:text-left">
-                    <div className="text-3xl font-bold text-gradient-cyan mb-1">{stat.value}</div>
-                    <div className="text-sm text-muted-foreground">{stat.label}</div>
+                    <div className="text-2xl sm:text-3xl font-bold text-gradient-cyan mb-1">{stat.value}</div>
+                    <div className="text-xs sm:text-sm text-muted-foreground">{stat.label}</div>
                   </motion.div>)}
               </div>
             </motion.div>

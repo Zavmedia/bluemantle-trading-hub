@@ -13,7 +13,7 @@ interface MarketData {
   changePercent: number;
 }
 
-// NSE symbol mappings
+// NSE symbol mappings and Forex pairs
 const SYMBOLS = {
   'NIFTY 50': '^NSEI',
   'SENSEX': '^BSESN',
@@ -21,6 +21,11 @@ const SYMBOLS = {
   'NIFTY IT': '^CNXIT',
   'NIFTY FMCG': '^CNXFMCG',
   'NIFTY AUTO': '^CNXAUTO',
+  'XAUUSD': 'GC=F',  // Gold Futures
+  'XAGUSD': 'SI=F',  // Silver Futures
+  'USDJPY': 'USDJPY=X',
+  'EURUSD': 'EURUSD=X',
+  'DXY': 'DX-Y.NYB',  // US Dollar Index
 };
 
 async function fetchStockData(symbol: string): Promise<any> {

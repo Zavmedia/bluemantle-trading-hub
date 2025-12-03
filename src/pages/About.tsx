@@ -3,23 +3,38 @@ import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Floating3DElements } from "@/components/Floating3DElements";
 import { AnimatedSphere } from "@/components/AnimatedSphere";
-import { Phone, Mail, MapPin, Target, Eye, Users } from "lucide-react";
+import { Phone, Mail, MapPin, Target, Eye, Users, Linkedin } from "lucide-react";
 const About = () => {
 const teamMembers = [{
     name: "PRASANTH PHILIP",
     role: "FOUNDER & DIRECTOR",
     bio: "Provides Overall Leadership  and Strategic Direction for the Company",
-    image: "/siju.jpg"
+    image: "/siju.jpg",
+    linkedin: "" // Add LinkedIn URL here
   }, {
     name: "SONIYA PRASANTH",
     role: "DIRECTOR AND GENERAL MANAGER",
     bio: "Oversees Daily Operations and Ensures Smooth,Efficient Management",
-    image: "/Sony.jpg"
+    image: "/Sony.jpg",
+    linkedin: "" // Add LinkedIn URL here
   }, {
     name: "VYSHAKH G",
     role: "HEAD OF DERIVATIVES AND TECHNICAL RESEARCH",
     bio: "NISM(SEBI)Certified with 8+ years of Experince In Derivatives Market",
-    image: "/Vyshakh G .jpg"
+    image: "/Vyshakh G .jpg",
+    linkedin: "" // Add LinkedIn URL here
+  }, {
+    name: "TEAM MEMBER 4",
+    role: "ROLE TITLE",
+    bio: "Add bio here",
+    image: "/placeholder.svg",
+    linkedin: "" // Add LinkedIn URL here
+  }, {
+    name: "TEAM MEMBER 5",
+    role: "ROLE TITLE",
+    bio: "Add bio here",
+    image: "/placeholder.svg",
+    linkedin: "" // Add LinkedIn URL here
   }];
   return <div className="min-h-screen pt-20">
       {/* Hero */}
@@ -140,7 +155,7 @@ const teamMembers = [{
             <p className="text-xl text-muted-foreground">NISM certified mentors with years of trading experience</p>
           </motion.div>
 
-          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+          <div className="grid md:grid-cols-3 lg:grid-cols-5 gap-6 max-w-6xl mx-auto">
             {teamMembers.map((member, i) => <motion.div key={i} initial={{
             opacity: 0,
             y: 30
@@ -160,9 +175,19 @@ const teamMembers = [{
                       className="w-full h-full object-cover"
                     />
                   </div>
-                  <h3 className="text-xl font-bold mb-2">{member.name}</h3>
-                  <p className="text-secondary font-semibold mb-2">{member.role}</p>
-                  <p className="text-sm text-muted-foreground">{member.bio}</p>
+                  <h3 className="text-lg font-bold mb-2">{member.name}</h3>
+                  <p className="text-secondary font-semibold mb-2 text-sm">{member.role}</p>
+                  <p className="text-sm text-muted-foreground mb-3">{member.bio}</p>
+                  {member.linkedin && (
+                    <a 
+                      href={member.linkedin} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[#0077B5] hover:bg-[#0077B5]/80 transition-colors"
+                    >
+                      <Linkedin className="w-5 h-5 text-white" />
+                    </a>
+                  )}
                 </Card>
               </motion.div>)}
           </div>

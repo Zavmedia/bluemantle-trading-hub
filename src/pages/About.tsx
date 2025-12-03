@@ -27,13 +27,13 @@ const teamMembers = [{
     name: "AJAL BENNY",
     role: "MARKET RESEARCH ANALYST/ MENTOR",
     bio: "Market Research Analyst with 2 years of active trading experience, specializing in high conviction market insights, data backed trend forecasting, and strategic opportunity identification across financial markets.",
-    image: "/placeholder.svg",
+    image: "/Ajal Benny .jpg",
     linkedin: "https://www.linkedin.com/in/ajal-benny-1803692a5?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" // Add LinkedIn URL here
   }, {
-    name: "TEAM MEMBER 5",
-    role: "ROLE TITLE",
-    bio: "Add bio here",
-    image: "/placeholder.svg",
+    name: "SHALU SHUJITH",
+    role: "MARKET RESEARCH ANALYST",
+    bio: "Market Researcher with 2 years of practical trading experience, focused on analyzing price action, studying market behavior, and identifying high probability opportunities.",
+    image: "/Shalu Sujith .jpg",
     linkedin: "" // Add LinkedIn URL here
   }];
   return <div className="min-h-screen pt-20">

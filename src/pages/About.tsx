@@ -155,41 +155,53 @@ const teamMembers = [{
             <p className="text-xl text-muted-foreground">NISM certified mentors with years of trading experience</p>
           </motion.div>
 
-          <div className="grid md:grid-cols-3 lg:grid-cols-5 gap-6 max-w-6xl mx-auto">
-            {teamMembers.map((member, i) => <motion.div key={i} initial={{
-            opacity: 0,
-            y: 30
-          }} whileInView={{
-            opacity: 1,
-            y: 0
-          }} viewport={{
-            once: true
-          }} transition={{
-            delay: i * 0.1
-          }}>
-                <Card className="p-6 text-center bg-card border-border hover:border-secondary transition-all hover:shadow-2xl">
-                  <div className="w-24 h-24 rounded-full mx-auto mb-4 overflow-hidden border-2 border-secondary/50">
-                    <img 
-                      src={member.image} 
-                      alt={member.name}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                  <h3 className="text-lg font-bold mb-2">{member.name}</h3>
-                  <p className="text-secondary font-semibold mb-2 text-sm">{member.role}</p>
-                  <p className="text-sm text-muted-foreground mb-3">{member.bio}</p>
-                  {member.linkedin && (
+          <div className="max-w-5xl mx-auto">
+            {/* Top row - 3 members */}
+            <div className="grid md:grid-cols-3 gap-6 mb-6">
+              {teamMembers.slice(0, 3).map((member, i) => (
+                <motion.div key={i} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }}>
+                  <Card className="p-6 text-center bg-card border-border hover:border-secondary transition-all hover:shadow-2xl">
+                    <div className="w-24 h-24 rounded-full mx-auto mb-4 overflow-hidden border-2 border-secondary/50">
+                      <img src={member.image} alt={member.name} className="w-full h-full object-cover" />
+                    </div>
+                    <h3 className="text-lg font-bold mb-2">{member.name}</h3>
+                    <p className="text-secondary font-semibold mb-2 text-sm">{member.role}</p>
+                    <p className="text-sm text-muted-foreground mb-3">{member.bio}</p>
                     <a 
-                      href={member.linkedin} 
+                      href={member.linkedin || "#"} 
                       target="_blank" 
                       rel="noopener noreferrer"
                       className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[#0077B5] hover:bg-[#0077B5]/80 transition-colors"
                     >
                       <Linkedin className="w-5 h-5 text-white" />
                     </a>
-                  )}
-                </Card>
-              </motion.div>)}
+                  </Card>
+                </motion.div>
+              ))}
+            </div>
+            {/* Bottom row - 2 members centered */}
+            <div className="grid md:grid-cols-2 gap-6 max-w-2xl mx-auto">
+              {teamMembers.slice(3, 5).map((member, i) => (
+                <motion.div key={i + 3} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: (i + 3) * 0.1 }}>
+                  <Card className="p-6 text-center bg-card border-border hover:border-secondary transition-all hover:shadow-2xl">
+                    <div className="w-24 h-24 rounded-full mx-auto mb-4 overflow-hidden border-2 border-secondary/50">
+                      <img src={member.image} alt={member.name} className="w-full h-full object-cover" />
+                    </div>
+                    <h3 className="text-lg font-bold mb-2">{member.name}</h3>
+                    <p className="text-secondary font-semibold mb-2 text-sm">{member.role}</p>
+                    <p className="text-sm text-muted-foreground mb-3">{member.bio}</p>
+                    <a 
+                      href={member.linkedin || "#"} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[#0077B5] hover:bg-[#0077B5]/80 transition-colors"
+                    >
+                      <Linkedin className="w-5 h-5 text-white" />
+                    </a>
+                  </Card>
+                </motion.div>
+              ))}
+            </div>
           </div>
         </div>
       </section>

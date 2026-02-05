@@ -7,7 +7,7 @@ import { TradingCandlesticks } from "@/components/TradingCandlesticks";
 import { Floating3DElements } from "@/components/Floating3DElements";
 import { AnimatedSphere } from "@/components/AnimatedSphere";
 import { MarketTicker } from "@/components/MarketTicker";
-import { Award, Users, BookOpen, TrendingUp, Shield, Target, Zap, MessageSquare, Calendar, Star } from "lucide-react";
+import { Award, Users, BookOpen, TrendingUp, Shield, Target, Zap, MessageSquare, Calendar, Star, BadgeCheck, GraduationCap, FileText } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import logoIcon from "@/assets/logo-icon.ico";
 const Home = () => {
@@ -64,6 +64,18 @@ const Home = () => {
     icon: Shield,
     title: "Lifetime Support",
     desc: "Ongoing guidance & assistance"
+  }, {
+    icon: BadgeCheck,
+    title: "Central Govt. Approved",
+    desc: "Skill India Registered Program"
+  }, {
+    icon: GraduationCap,
+    title: "Certification Support",
+    desc: "Industry-Relevant Certificates"
+  }, {
+    icon: FileText,
+    title: "Premium Study Materials",
+    desc: "Exclusive notes & learning resources"
   }];
   const specialFeatures = ["WhatsApp Premium Community Support", "News Updates & Trading Plan Guidance", "Funded Accounts Assistance & Guidance", "Trading Psychology Sessions", "Revision Classes & Study Materials", "Dedicated Trading Floor Access"];
   return <div className="min-h-screen">

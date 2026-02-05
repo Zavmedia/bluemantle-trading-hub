@@ -10,6 +10,7 @@ import { MarketTicker } from "@/components/MarketTicker";
 import { Award, Users, BookOpen, TrendingUp, Shield, Target, Zap, MessageSquare, Calendar, Star, BadgeCheck, GraduationCap, FileText } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import logoIcon from "@/assets/logo-icon.ico";
+import bluemantleLogo from "@/assets/bluemantle-logo.png";
 const Home = () => {
   const {
     toast
@@ -248,7 +249,7 @@ const Home = () => {
         }} viewport={{
           once: true
         }} className="max-w-4xl mx-auto text-center">
-            <Award className="w-16 h-16 text-accent mx-auto mb-6 glow-gold" />
+            <img src={bluemantleLogo} alt="Bluemantle Logo" className="w-24 h-24 mx-auto mb-6" />
             <h2 className="text-4xl lg:text-5xl font-bold mb-6">
               Excel Your Career with <span className="text-gradient-gold">NISM Certifications</span>
             </h2>

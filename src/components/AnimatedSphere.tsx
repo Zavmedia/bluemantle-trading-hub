@@ -4,7 +4,7 @@ interface AnimatedSphereProps {
   delay?: number;
 }
 
-export const AnimatedSphere = ({ size = 200, color = "purple", delay = 0 }: AnimatedSphereProps) => {
+export const AnimatedSphere = ({ size = 450, color = "purple", delay = 0 }: AnimatedSphereProps) => {
   // Scale factor based on size prop
   const scale = size / 200;
   

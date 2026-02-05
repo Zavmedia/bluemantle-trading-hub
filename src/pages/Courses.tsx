@@ -1,10 +1,10 @@
 import { motion } from "framer-motion";
 import { useEffect } from "react";
-import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { CheckCircle, Download, MessageCircle, Calendar, Award, TrendingUp, BookOpen, Users, Target } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import ApplyNowButton from "@/components/ApplyNowButton";
 const Courses = () => {
   const { toast } = useToast();
 
@@ -113,9 +113,7 @@ const Courses = () => {
                 </div>
 
                 <div className="flex flex-wrap gap-4 pt-6 border-t border-border">
-                  <Button size="lg" className="bg-gradient-cyan font-bold glow-cyan text-slate-50" asChild>
-                    <Link to="/apply">Apply Now</Link>
-                  </Button>
+                  <ApplyNowButton />
                   <Button size="lg" variant="outline" className="border-secondary text-secondary hover:bg-secondary hover:text-navy">
                     <MessageCircle className="mr-2" size={20} />
                     Ask for Free Demo Class
@@ -187,9 +185,7 @@ const Courses = () => {
                 </div>
 
                 <div className="flex flex-wrap gap-4">
-                  <Button size="lg" className="bg-gradient-to-r from-accent to-accent/80 text-navy font-bold glow-gold" asChild>
-                    <Link to="/apply">Register Now</Link>
-                  </Button>
+                  <ApplyNowButton />
                   <Button size="lg" variant="outline" className="border-accent text-accent hover:bg-accent hover:text-navy">
                     <MessageCircle className="mr-2" size={20} />
                     Talk to Counsellor

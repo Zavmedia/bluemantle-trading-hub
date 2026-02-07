@@ -41,9 +41,12 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, variant, size, asChild = false, animated = true, children, ...props }, ref) => {
     const Comp = asChild ? Slot : "button";
     
-    if (animated && variant !== "ghost" && variant !== "link") {
+    // Don't use animated version when asChild is true (Slot requires single child)
+    const shouldAnimate = animated && !asChild && variant !== "ghost" && variant !== "link";
+    
+    if (shouldAnimate) {
       return (
-        <Comp
+        <button
           className={cn(
             "relative inline-flex overflow-hidden rounded-full p-[2px] focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-offset-2 focus:ring-offset-background group",
             className
@@ -64,7 +67,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
           >
             {children}
           </span>
-        </Comp>
+        </button>
       );
     }
     

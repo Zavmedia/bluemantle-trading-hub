@@ -249,7 +249,7 @@ const Home = () => {
         }} viewport={{
           once: true
         }} className="max-w-4xl mx-auto text-center">
-            <img src={bluemantleLogo} alt="Bluemantle Logo" className="w-50 h-50 mx-auto mb-6" />
+            <img src={bluemantleLogo} alt="Bluemantle Logo" className="w-35 h-35 mx-auto mb-6" />
             <h2 className="text-4xl lg:text-5xl font-bold mb-6">
               Excel Your Career with <span className="text-gradient-gold">NISM Certifications</span>
             </h2>

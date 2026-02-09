@@ -48,21 +48,25 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       return (
         <button
           className={cn(
-            "relative inline-flex overflow-hidden rounded-full p-[2px] focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-offset-2 focus:ring-offset-background group",
-            className
+            "relative inline-flex overflow-hidden rounded-[var(--radius)] p-[2px] transition-shadow focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:pointer-events-none disabled:opacity-50 group hover:shadow-[var(--shadow-glow-cyan)]",
+            className,
           )}
           ref={ref}
           {...props}
         >
-          <span className="absolute inset-[-1000%] animate-[spin_3s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,hsl(185_84%_50%)_0%,hsl(220_90%_56%)_25%,hsl(270_70%_60%)_50%,hsl(220_90%_56%)_75%,hsl(185_84%_50%)_100%)]" />
+          <span className="absolute inset-[-1000%] motion-reduce:animate-none animate-[spin_2.4s_linear_infinite] opacity-90 bg-[conic-gradient(from_90deg_at_50%_50%,hsl(var(--secondary))_0%,hsl(var(--primary))_35%,hsl(var(--purple))_55%,hsl(var(--primary))_75%,hsl(var(--secondary))_100%)]" />
           <span
             className={cn(
-              "inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-background backdrop-blur-3xl transition-all group-hover:bg-muted",
-              size === "lg" ? "px-8 py-3 text-base font-semibold" : size === "sm" ? "px-4 py-2 text-sm" : "px-6 py-2.5 text-sm font-medium",
-              variant === "default" && "text-primary-foreground bg-card hover:bg-card/80",
-              variant === "secondary" && "text-secondary bg-card hover:bg-card/80",
-              variant === "outline" && "text-secondary bg-background hover:bg-muted",
-              variant === "destructive" && "text-destructive bg-card hover:bg-card/80"
+              "relative z-10 inline-flex h-full w-full cursor-pointer items-center justify-center rounded-[calc(var(--radius)-2px)] backdrop-blur-3xl transition-colors",
+              size === "lg"
+                ? "px-8 py-3 text-base font-semibold"
+                : size === "sm"
+                  ? "px-4 py-2 text-sm"
+                  : "px-6 py-2.5 text-sm font-medium",
+              variant === "default" && "bg-card/90 text-primary-foreground hover:bg-card/80",
+              variant === "secondary" && "bg-card/90 text-secondary hover:bg-card/80",
+              variant === "outline" && "bg-background text-foreground hover:bg-muted",
+              variant === "destructive" && "bg-card/90 text-destructive hover:bg-card/80",
             )}
           >
             {children}

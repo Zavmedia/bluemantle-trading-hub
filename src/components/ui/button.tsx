@@ -40,35 +40,52 @@ export interface ButtonProps
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, variant, size, asChild = false, animated = true, children, ...props }, ref) => {
     const Comp = asChild ? Slot : "button";
-    
-    // Don't use animated version when asChild is true (Slot requires single child)
-    const shouldAnimate = animated && !asChild && variant !== "ghost" && variant !== "link";
+    const shouldAnimate = animated && variant !== "ghost" && variant !== "link";
     
     if (shouldAnimate) {
+      const innerClasses = cn(
+        "relative z-10 inline-flex h-full w-full cursor-pointer items-center justify-center gap-2 rounded-[calc(var(--radius)-2px)] backdrop-blur-3xl transition-colors",
+        size === "lg"
+          ? "px-8 py-3 text-base font-semibold"
+          : size === "sm"
+            ? "px-4 py-2 text-sm"
+            : "px-6 py-2.5 text-sm font-medium",
+        variant === "default" && "bg-card/90 text-primary-foreground hover:bg-card/80",
+        variant === "secondary" && "bg-card/90 text-secondary hover:bg-card/80",
+        variant === "outline" && "bg-background text-foreground hover:bg-muted",
+        variant === "destructive" && "bg-card/90 text-destructive hover:bg-card/80",
+        !variant && "bg-card/90 text-primary-foreground hover:bg-card/80",
+      );
+
+      const wrapperClasses = cn(
+        "relative inline-flex overflow-hidden rounded-[var(--radius)] p-[2px] transition-shadow focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:pointer-events-none disabled:opacity-50 group hover:shadow-[var(--shadow-glow-cyan)]",
+        className,
+      );
+
+      const gradientSpan = (
+        <span className="absolute inset-[-1000%] motion-reduce:animate-none animate-[spin_2.4s_linear_infinite] opacity-90 bg-[conic-gradient(from_90deg_at_50%_50%,hsl(var(--secondary))_0%,hsl(var(--primary))_35%,hsl(var(--purple))_55%,hsl(var(--primary))_75%,hsl(var(--secondary))_100%)]" />
+      );
+
+      if (asChild) {
+        // For asChild, wrap in a non-interactive span so Slot renders the semantic element inside
+        return (
+          <span className={wrapperClasses}>
+            {gradientSpan}
+            <Comp className={innerClasses} ref={ref} {...props}>
+              {children}
+            </Comp>
+          </span>
+        );
+      }
+
       return (
         <button
-          className={cn(
-            "relative inline-flex overflow-hidden rounded-[var(--radius)] p-[2px] transition-shadow focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:pointer-events-none disabled:opacity-50 group hover:shadow-[var(--shadow-glow-cyan)]",
-            className,
-          )}
+          className={wrapperClasses}
           ref={ref}
           {...props}
         >
-          <span className="absolute inset-[-1000%] motion-reduce:animate-none animate-[spin_2.4s_linear_infinite] opacity-90 bg-[conic-gradient(from_90deg_at_50%_50%,hsl(var(--secondary))_0%,hsl(var(--primary))_35%,hsl(var(--purple))_55%,hsl(var(--primary))_75%,hsl(var(--secondary))_100%)]" />
-          <span
-            className={cn(
-              "relative z-10 inline-flex h-full w-full cursor-pointer items-center justify-center rounded-[calc(var(--radius)-2px)] backdrop-blur-3xl transition-colors",
-              size === "lg"
-                ? "px-8 py-3 text-base font-semibold"
-                : size === "sm"
-                  ? "px-4 py-2 text-sm"
-                  : "px-6 py-2.5 text-sm font-medium",
-              variant === "default" && "bg-card/90 text-primary-foreground hover:bg-card/80",
-              variant === "secondary" && "bg-card/90 text-secondary hover:bg-card/80",
-              variant === "outline" && "bg-background text-foreground hover:bg-muted",
-              variant === "destructive" && "bg-card/90 text-destructive hover:bg-card/80",
-            )}
-          >
+          {gradientSpan}
+          <span className={innerClasses}>
             {children}
           </span>
         </button>

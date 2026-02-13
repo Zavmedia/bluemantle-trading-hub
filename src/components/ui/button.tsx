@@ -44,7 +44,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     
     if (shouldAnimate) {
       const innerClasses = cn(
-        "relative z-10 inline-flex h-full w-full cursor-pointer items-center justify-center gap-2 rounded-[calc(var(--radius)-2px)] backdrop-blur-3xl transition-colors",
+        "relative z-10 inline-flex h-full w-full cursor-pointer items-center justify-center gap-2 rounded-full backdrop-blur-3xl transition-colors",
         size === "lg"
           ? "px-8 py-3 text-base font-semibold"
           : size === "sm"
@@ -58,7 +58,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       );
 
       const wrapperClasses = cn(
-        "relative inline-flex overflow-hidden rounded-[var(--radius)] p-[2px] transition-shadow focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:pointer-events-none disabled:opacity-50 group hover:shadow-[var(--shadow-glow-cyan)]",
+        "relative inline-flex overflow-hidden rounded-full p-[2px] transition-shadow focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:pointer-events-none disabled:opacity-50 group hover:shadow-[var(--shadow-glow-cyan)]",
         className,
       );
 
@@ -67,7 +67,6 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       );
 
       if (asChild) {
-        // For asChild, wrap in a non-interactive span so Slot renders the semantic element inside
         return (
           <span className={wrapperClasses}>
             {gradientSpan}

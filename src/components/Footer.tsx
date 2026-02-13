@@ -102,51 +102,74 @@ export const Footer = () => {
             </ul>
           </div>
 
-          {/* Social */}
+          {/* Social - Isometric 3D Style */}
           <div>
             <h4 className="font-bold mb-4 text-foreground">Follow Us</h4>
-            <div className="flex gap-4 mb-6">
-              {socialLinks.map(social => <a key={social.label} href={social.href} target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-muted hover:bg-secondary hover:text-navy flex items-center justify-center transition-all hover:scale-110 glow-cyan" aria-label={social.label}>
-                  <social.icon size={18} />
-                </a>)}
+            <div className="rounded-2xl p-4 backdrop-blur-md inline-flex flex-col gap-4"
+              style={{
+                boxShadow: "inset 0 0 20px rgba(255,255,255,0.1), inset 0 0 5px rgba(255,255,255,0.15), 0 5px 5px rgba(0,0,0,0.16)",
+              }}
+            >
+              <ul className="flex list-none gap-4 p-0 m-0 flex-wrap">
+                {socialLinks.map(social => (
+                  <li key={social.label} className="relative group cursor-pointer">
+                    {/* Shadow layers */}
+                    <span className="absolute opacity-0 rounded-full w-[50px] h-[50px] border border-secondary transition-all duration-300 group-hover:opacity-20" 
+                      style={{ boxShadow: "inset 0 0 20px rgba(255,255,255,0.15), 0 5px 5px rgba(0,0,0,0.16)" }} />
+                    <span className="absolute opacity-0 rounded-full w-[50px] h-[50px] border border-secondary transition-all duration-300 group-hover:opacity-40 group-hover:translate-x-[5px] group-hover:-translate-y-[5px]"
+                      style={{ boxShadow: "inset 0 0 20px rgba(255,255,255,0.15), 0 5px 5px rgba(0,0,0,0.16)" }} />
+                    <span className="absolute opacity-0 rounded-full w-[50px] h-[50px] border border-secondary transition-all duration-300 group-hover:opacity-60 group-hover:translate-x-[10px] group-hover:-translate-y-[10px]"
+                      style={{ boxShadow: "inset 0 0 20px rgba(255,255,255,0.15), 0 5px 5px rgba(0,0,0,0.16)" }} />
+                    
+                    <a href={social.href} target="_blank" rel="noopener noreferrer" aria-label={social.label}>
+                      <div className="relative z-10 w-[50px] h-[50px] rounded-full flex items-center justify-center text-secondary transition-all duration-300 group-hover:translate-x-[15px] group-hover:-translate-y-[15px]"
+                        style={{ boxShadow: "inset 0 0 20px rgba(255,255,255,0.15), inset 0 0 5px rgba(255,255,255,0.25), 0 5px 5px rgba(0,0,0,0.16)" }}
+                      >
+                        <social.icon size={22} />
+                      </div>
+                    </a>
+                    
+                    {/* Label tooltip */}
+                    <span className="absolute opacity-0 rounded-md px-2 py-1 text-xs text-secondary bg-white/10 backdrop-blur-sm transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-[25px] group-hover:-translate-y-[2px] group-hover:-skew-x-[5deg] whitespace-nowrap z-20 left-0 top-full mt-1"
+                      style={{ boxShadow: "inset 0 0 20px rgba(255,255,255,0.15), 0 5px 5px rgba(0,0,0,0.08)" }}
+                    >
+                      {social.label}
+                    </span>
+                  </li>
+                ))}
+              </ul>
             </div>
 
             {/* Share Button */}
-            <Popover>
-              <PopoverTrigger asChild>
-                <Button variant="outline" className="rounded-full border-secondary/50 hover:border-secondary" animated={false}>
-                  <Share2 size={16} />
-                  Share Website
-                </Button>
-              </PopoverTrigger>
-              <PopoverContent className="w-64 p-4" side="top" align="start">
-                <h5 className="font-semibold text-sm mb-3 text-foreground">Share Bluemantle</h5>
-                
-                {/* Copy Link */}
-                <button
-                  onClick={handleCopy}
-                  className="w-full flex items-center gap-3 px-3 py-2 rounded-lg bg-muted hover:bg-muted/80 transition-colors mb-3 text-sm"
-                >
-                  {copied ? <Check size={16} className="text-green-500" /> : <Copy size={16} className="text-muted-foreground" />}
-                  <span className="text-foreground">{copied ? "Link Copied!" : "Copy Link"}</span>
-                </button>
-
-                {/* Social Share Options */}
-                <div className="grid grid-cols-2 gap-2">
-                  {shareOptions.map(opt => (
-                    <a
-                      key={opt.label}
-                      href={opt.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className={`${opt.color} text-white text-xs font-medium px-3 py-2 rounded-lg text-center hover:opacity-90 transition-opacity`}
-                    >
-                      {opt.label}
-                    </a>
-                  ))}
-                </div>
-              </PopoverContent>
-            </Popover>
+            <div className="mt-4">
+              <Popover>
+                <PopoverTrigger asChild>
+                  <Button variant="outline" className="rounded-full border-secondary/50 hover:border-secondary" animated={false}>
+                    <Share2 size={16} />
+                    Share Website
+                  </Button>
+                </PopoverTrigger>
+                <PopoverContent className="w-64 p-4" side="top" align="start">
+                  <h5 className="font-semibold text-sm mb-3 text-foreground">Share Bluemantle</h5>
+                  <button
+                    onClick={handleCopy}
+                    className="w-full flex items-center gap-3 px-3 py-2 rounded-lg bg-muted hover:bg-muted/80 transition-colors mb-3 text-sm"
+                  >
+                    {copied ? <Check size={16} className="text-green-500" /> : <Copy size={16} className="text-muted-foreground" />}
+                    <span className="text-foreground">{copied ? "Link Copied!" : "Copy Link"}</span>
+                  </button>
+                  <div className="grid grid-cols-2 gap-2">
+                    {shareOptions.map(opt => (
+                      <a key={opt.label} href={opt.href} target="_blank" rel="noopener noreferrer"
+                        className={`${opt.color} text-white text-xs font-medium px-3 py-2 rounded-lg text-center hover:opacity-90 transition-opacity`}
+                      >
+                        {opt.label}
+                      </a>
+                    ))}
+                  </div>
+                </PopoverContent>
+              </Popover>
+            </div>
           </div>
         </div>
 

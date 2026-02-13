@@ -1,31 +1,9 @@
 import { Link } from "react-router-dom";
-import { Instagram, Linkedin, Youtube, Phone, Mail, MapPin, Share2, Copy, Check } from "lucide-react";
-import { useState } from "react";
+import { Instagram, Linkedin, Youtube, Phone, Mail, MapPin } from "lucide-react";
 import logo from "@/assets/logo.png";
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/components/ui/popover";
-import { Button } from "@/components/ui/button";
+import { ShareButton } from "@/components/ShareButton";
 
 export const Footer = () => {
-  const [copied, setCopied] = useState(false);
-  const shareUrl = "https://bluemantletechnology.com/";
-
-  const handleCopy = async () => {
-    await navigator.clipboard.writeText(shareUrl);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
-  };
-
-  const shareOptions = [
-    { label: "WhatsApp", href: `https://wa.me/?text=${encodeURIComponent(shareUrl)}`, color: "bg-[#25D366]" },
-    { label: "Facebook", href: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`, color: "bg-[#1877F2]" },
-    { label: "Twitter", href: `https://twitter.com/intent/tweet?url=${encodeURIComponent(shareUrl)}`, color: "bg-[#1DA1F2]" },
-    { label: "LinkedIn", href: `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(shareUrl)}`, color: "bg-[#0A66C2]" },
-  ];
-
   const quickLinks = [{
     path: "/",
     label: "Home"
@@ -142,33 +120,7 @@ export const Footer = () => {
 
             {/* Share Button */}
             <div className="mt-4">
-              <Popover>
-                <PopoverTrigger asChild>
-                  <Button variant="outline" className="rounded-full border-secondary/50 hover:border-secondary" animated={false}>
-                    <Share2 size={16} />
-                    Share Website
-                  </Button>
-                </PopoverTrigger>
-                <PopoverContent className="w-64 p-4" side="top" align="start">
-                  <h5 className="font-semibold text-sm mb-3 text-foreground">Share Bluemantle</h5>
-                  <button
-                    onClick={handleCopy}
-                    className="w-full flex items-center gap-3 px-3 py-2 rounded-lg bg-muted hover:bg-muted/80 transition-colors mb-3 text-sm"
-                  >
-                    {copied ? <Check size={16} className="text-green-500" /> : <Copy size={16} className="text-muted-foreground" />}
-                    <span className="text-foreground">{copied ? "Link Copied!" : "Copy Link"}</span>
-                  </button>
-                  <div className="grid grid-cols-2 gap-2">
-                    {shareOptions.map(opt => (
-                      <a key={opt.label} href={opt.href} target="_blank" rel="noopener noreferrer"
-                        className={`${opt.color} text-white text-xs font-medium px-3 py-2 rounded-lg text-center hover:opacity-90 transition-opacity`}
-                      >
-                        {opt.label}
-                      </a>
-                    ))}
-                  </div>
-                </PopoverContent>
-              </Popover>
+              <ShareButton />
             </div>
           </div>
         </div>

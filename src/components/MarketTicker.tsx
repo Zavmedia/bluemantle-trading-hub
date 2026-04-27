@@ -15,8 +15,14 @@ export const MarketTicker = () => {
     { index: "NIFTY 50", value: 24857.30, change: 234.50, changePercent: 0.95 },
     { index: "SENSEX", value: 82890.94, change: 692.27, changePercent: 0.84 },
     { index: "BANK NIFTY", value: 53234.85, change: -156.30, changePercent: -0.29 },
+    { index: "XAUUSD", value: 2650.40, change: 12.30, changePercent: 0.47 },
+    { index: "XAGUSD", value: 31.25, change: -0.18, changePercent: -0.57 },
+    { index: "USDJPY", value: 154.32, change: 0.24, changePercent: 0.16 },
+    { index: "EURUSD", value: 1.0845, change: 0.0023, changePercent: 0.21 },
+    { index: "DXY", value: 106.45, change: -0.15, changePercent: -0.14 },
   ]);
   const [isLoading, setIsLoading] = useState(true);
+  const [isLive, setIsLive] = useState(false);
   const [lastUpdate, setLastUpdate] = useState<Date | null>(null);
 
   const [marketNews] = useState([

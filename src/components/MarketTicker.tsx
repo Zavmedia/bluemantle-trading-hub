@@ -15,8 +15,14 @@ export const MarketTicker = () => {
     { index: "NIFTY 50", value: 24857.30, change: 234.50, changePercent: 0.95 },
     { index: "SENSEX", value: 82890.94, change: 692.27, changePercent: 0.84 },
     { index: "BANK NIFTY", value: 53234.85, change: -156.30, changePercent: -0.29 },
+    { index: "XAUUSD", value: 2650.40, change: 12.30, changePercent: 0.47 },
+    { index: "XAGUSD", value: 31.25, change: -0.18, changePercent: -0.57 },
+    { index: "USDJPY", value: 154.32, change: 0.24, changePercent: 0.16 },
+    { index: "EURUSD", value: 1.0845, change: 0.0023, changePercent: 0.21 },
+    { index: "DXY", value: 106.45, change: -0.15, changePercent: -0.14 },
   ]);
   const [isLoading, setIsLoading] = useState(true);
+  const [isLive, setIsLive] = useState(false);
   const [lastUpdate, setLastUpdate] = useState<Date | null>(null);
 
   const [marketNews] = useState([
@@ -35,13 +41,22 @@ export const MarketTicker = () => {
   const fetchMarketData = async () => {
     try {
       const { data, error } = await supabase.functions.invoke("fetch-market-data", { body: {} });
-      if (error) return;
+      if (error) {
+        setIsLive(false);
+        setIsLoading(false);
+        return;
+      }
       if (data?.success && data?.data) {
-        setMarketData(data.data);
-        setLastUpdate(new Date());
+        const valid = data.data.filter((d: MarketData) => d.value > 0);
+        if (valid.length > 0) {
+          setMarketData(valid);
+          setLastUpdate(new Date());
+          setIsLive(true);
+        }
         setIsLoading(false);
       }
     } catch {
+      setIsLive(false);
       setIsLoading(false);
     }
   };
@@ -61,13 +76,13 @@ export const MarketTicker = () => {
         <div className="flex items-center justify-between mb-4">
           <div className="flex items-center gap-2">
             <motion.div
-              animate={{ scale: [1, 1.3, 1], opacity: [1, 0.4, 1] }}
+              animate={isLive ? { scale: [1, 1.3, 1], opacity: [1, 0.4, 1] } : { opacity: 0.4 }}
               transition={{ duration: 2, repeat: Infinity }}
-              className="w-1.5 h-1.5 rounded-full bg-red-500"
+              className={`w-1.5 h-1.5 rounded-full ${isLive ? "bg-red-500" : "bg-muted-foreground"}`}
             />
             <span className="text-[10px] font-semibold text-muted-foreground uppercase tracking-[0.15em] flex items-center gap-1.5">
               <Activity size={12} />
-              {isLoading ? "Loading..." : "Live Market Data"}
+              {isLoading ? "Connecting..." : isLive ? "Live Market Data" : "Reconnecting..."}
             </span>
           </div>
           {lastUpdate && (

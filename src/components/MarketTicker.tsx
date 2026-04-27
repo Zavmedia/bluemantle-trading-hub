@@ -41,13 +41,22 @@ export const MarketTicker = () => {
   const fetchMarketData = async () => {
     try {
       const { data, error } = await supabase.functions.invoke("fetch-market-data", { body: {} });
-      if (error) return;
+      if (error) {
+        setIsLive(false);
+        setIsLoading(false);
+        return;
+      }
       if (data?.success && data?.data) {
-        setMarketData(data.data);
-        setLastUpdate(new Date());
+        const valid = data.data.filter((d: MarketData) => d.value > 0);
+        if (valid.length > 0) {
+          setMarketData(valid);
+          setLastUpdate(new Date());
+          setIsLive(true);
+        }
         setIsLoading(false);
       }
     } catch {
+      setIsLive(false);
       setIsLoading(false);
     }
   };

@@ -76,13 +76,13 @@ export const MarketTicker = () => {
         <div className="flex items-center justify-between mb-4">
           <div className="flex items-center gap-2">
             <motion.div
-              animate={{ scale: [1, 1.3, 1], opacity: [1, 0.4, 1] }}
+              animate={isLive ? { scale: [1, 1.3, 1], opacity: [1, 0.4, 1] } : { opacity: 0.4 }}
               transition={{ duration: 2, repeat: Infinity }}
-              className="w-1.5 h-1.5 rounded-full bg-red-500"
+              className={`w-1.5 h-1.5 rounded-full ${isLive ? "bg-red-500" : "bg-muted-foreground"}`}
             />
             <span className="text-[10px] font-semibold text-muted-foreground uppercase tracking-[0.15em] flex items-center gap-1.5">
               <Activity size={12} />
-              {isLoading ? "Loading..." : "Live Market Data"}
+              {isLoading ? "Connecting..." : isLive ? "Live Market Data" : "Reconnecting..."}
             </span>
           </div>
           {lastUpdate && (
